@@ -62,7 +62,7 @@
 
 <!-- LOADER -->
 <div id="loader">
-  <img src="img/logo.png" class="ld-logo" style="height:68px;width:auto;">
+  <img id="dyn-loader-logo" src="img/logo.png" class="ld-logo" style="height:68px;width:auto;">
   <div class="ld-track"><div class="ld-fill"></div></div>
   <div class="ld-txt" data-ar>جاري التحميل...</div>
   <div class="ld-txt" data-en>Loading...</div>
@@ -75,7 +75,7 @@
 <!-- NAVBAR -->
 <div id="nav">
   <div class="nav-logo" onclick="goView('website')">
-    <img src="img/logo.png" alt="Riaya Workforce" style="height:46px;">
+    <img id="dyn-navbar-logo" src="img/logo.png" alt="Riaya Workforce" style="height:46px;">
   </div>
   <div class="nav-links">
     <span class="nl" onclick="goSec('#about-s')" data-ar>من نحن</span>
@@ -132,13 +132,20 @@
   <div class="hero-ring"></div>
   <div class="hero-wrap">
     <div>
-      <div class="hero-badge"><span class="bdot"></span><span data-ar>شريكك الموثوق في القوى العاملة</span><span data-en>Your Trusted Workforce Partner</span></div>
+      <div class="hero-badge"><span class="bdot"></span><span id="dyn-hero-badge-ar" data-ar>شريكك الموثوق في القوى العاملة</span><span id="dyn-hero-badge-en" data-en>Your Trusted Workforce Partner</span></div>
       <h1 class="hero-title">
-        <span class="ln"><span data-ar>حلول <span class="hl">رعاية</span></span><span data-en>Smart <span class="hl">Riaya</span></span></span>
-        <span class="ln"><span data-ar>اللوجستية الذكية</span><span data-en>Logistics Solutions</span></span>
-        <span class="ln"><span data-ar>لنمو أعمالك</span><span data-en>Powering Your Growth</span></span>
+        <span id="dyn-hero-title-ar" data-ar>
+          <span class="ln">حلول <span class="hl">رعاية</span></span>
+          <span class="ln">اللوجستية الذكية</span>
+          <span class="ln">لنمو أعمالك</span>
+        </span>
+        <span id="dyn-hero-title-en" data-en>
+          <span class="ln">Smart <span class="hl">Riaya</span></span>
+          <span class="ln">Logistics Solutions</span>
+          <span class="ln">Powering Your Growth</span>
+        </span>
       </h1>
-      <p class="hero-sub"><span data-ar>شركة سعودية متخصصة في إدارة القوى العاملة والخدمات اللوجستية، نقدم حلولاً ذكية وقابلة للتوسع تعزز كفاءتك التشغيلية وتدعم رؤية 2030.</span><span data-en>A Saudi-based company specialized in workforce management and logistics, delivering smart scalable solutions that optimize your operations and support Vision 2030.</span></p>
+      <p class="hero-sub"><span id="dyn-hero-sub-ar" data-ar>شركة سعودية متخصصة في إدارة القوى العاملة والخدمات اللوجستية، نقدم حلولاً ذكية وقابلة للتوسع تعزز كفاءتك التشغيلية وتدعم رؤية 2030.</span><span id="dyn-hero-sub-en" data-en>A Saudi-based company specialized in workforce management and logistics, delivering smart scalable solutions that optimize your operations and support Vision 2030.</span></p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="goSec('#contact-s')"><span data-ar>احصل على عرض مجاني</span><span data-en>Get a Free Quote</span></button>
         <button class="btn-outline" onclick="goSec('#svc-s')"><span data-ar>اكتشف خدماتنا</span><span data-en>Our Services</span></button>
@@ -178,12 +185,12 @@
 <!-- About Hero -->
 <div class="abt-hero">
   <div class="abt-hero-bg">
-    <img src="img/WhatsApp%20Image%202026-04-18%20at%2012.39.16%20AM.jpeg" alt="Riaya Workforce Team" class="abt-hero-img"/>
+    <img id="dyn-about-hero-img" src="img/WhatsApp%20Image%202026-04-18%20at%2012.39.16%20AM.jpeg" alt="Riaya Workforce Team" class="abt-hero-img"/>
     <div class="abt-hero-grad"></div>
   </div>
   <div class="abt-hero-content rv">
-    <h1 class="abt-hero-title"><span data-ar>شركة رعاية: شريكك الاستراتيجي للنمو والنجاح في المملكة العربية السعودية</span><span data-en>Riaya: Your Strategic Partner for Growth & Success in Saudi Arabia</span></h1>
-    <p class="abt-hero-sub"><span data-ar>نحن في رعاية نمثل الشريك الاستراتيجي الأمثل للشركات في السوق السعودي، نقدم حلولاً لوجستية وتشغيلية متكاملة تدعم التوسع والنمو المستدام في بيئة الأعمال المتطورة.</span><span data-en>At Riaya, we represent the ideal strategic partner for businesses in the Saudi market, delivering integrated logistics and operational solutions that support expansion and sustainable growth.</span></p>
+    <h1 class="abt-hero-title"><span id="dyn-about-hero-title-ar" data-ar>شركة رعاية: شريكك الاستراتيجي للنمو والنجاح في المملكة العربية السعودية</span><span id="dyn-about-hero-title-en" data-en>Riaya: Your Strategic Partner for Growth & Success in Saudi Arabia</span></h1>
+    <p class="abt-hero-sub"><span id="dyn-about-hero-sub-ar" data-ar>نحن في رعاية نمثل الشريك الاستراتيجي الأمثل للشركات في السوق السعودي، نقدم حلولاً لوجستية وتشغيلية متكاملة تدعم التوسع والنمو المستدام في بيئة الأعمال المتطورة.</span><span id="dyn-about-hero-sub-en" data-en>At Riaya, we represent the ideal strategic partner for businesses in the Saudi market, delivering integrated logistics and operational solutions that support expansion and sustainable growth.</span></p>
     <button class="btn-primary abt-cta" onclick="goSec('#svc-s')"><span data-ar>اكتشف خدماتنا</span><span data-en>Explore Our Services</span></button>
   </div>
 </div>
@@ -196,15 +203,15 @@
       <div class="abt-vm-card rv d1">
         <div class="abt-vm-accent abt-accent-teal"></div>
         <div class="abt-vm-icon-wrap abt-icon-teal"><i class="fa-solid fa-eye"></i></div>
-        <h2 class="abt-vm-title"><span data-ar>رؤيتنا</span><span data-en>Our Vision</span></h2>
-        <p class="abt-vm-txt"><span data-ar>أن نكون الرواد في تقديم حلول لوجستية وتشغيلية متكاملة ومستدامة، تعزز تنافسية الشركات وتساهم في بناء مستقبل مشرق للمملكة وفق رؤية 2030.</span><span data-en>To be pioneers in delivering integrated, sustainable logistics and operational solutions that enhance business competitiveness and contribute to building the Kingdom's bright future aligned with Vision 2030.</span></p>
+        <h2 class="abt-vm-title"><span id="dyn-vision-title-ar" data-ar>رؤيتنا</span><span id="dyn-vision-title-en" data-en>Our Vision</span></h2>
+        <p class="abt-vm-txt"><span id="dyn-vision-text-ar" data-ar>أن نكون الرواد في تقديم حلول لوجستية وتشغيلية متكاملة ومستدامة، تعزز تنافسية الشركات وتساهم في بناء مستقبل مشرق للمملكة وفق رؤية 2030.</span><span id="dyn-vision-text-en" data-en>To be pioneers in delivering integrated, sustainable logistics and operational solutions that enhance business competitiveness and contribute to building the Kingdom's bright future aligned with Vision 2030.</span></p>
       </div>
       <!-- Mission -->
       <div class="abt-vm-card rv d2">
         <div class="abt-vm-accent abt-accent-or"></div>
         <div class="abt-vm-icon-wrap abt-icon-or"><i class="fa-solid fa-rocket"></i></div>
-        <h2 class="abt-vm-title"><span data-ar>رسالتنا</span><span data-en>Our Mission</span></h2>
-        <p class="abt-vm-txt"><span data-ar>تمكين الشركات السعودية من تحقيق أعلى مستويات الأداء التشغيلي من خلال تقديم حلول لوجستية وإدارة قوى عاملة بمعايير عالمية، تعتمد على التكنولوجيا المتقدمة والكوادر البشرية المؤهلة.</span><span data-en>Empowering Saudi businesses to achieve peak operational performance through world-class logistics and workforce management solutions, powered by advanced technology and qualified human resources.</span></p>
+        <h2 class="abt-vm-title"><span id="dyn-mission-title-ar" data-ar>رسالتنا</span><span id="dyn-mission-title-en" data-en>Our Mission</span></h2>
+        <p class="abt-vm-txt"><span id="dyn-mission-text-ar" data-ar>تمكين الشركات السعودية من تحقيق أعلى مستويات الأداء التشغيلي من خلال تقديم حلول لوجستية وإدارة قوى عاملة بمعايير عالمية، تعتمد على التكنولوجيا المتقدمة والكوادر البشرية المؤهلة.</span><span id="dyn-mission-text-en" data-en>Empowering Saudi businesses to achieve peak operational performance through world-class logistics and workforce management solutions, powered by advanced technology and qualified human resources.</span></p>
       </div>
     </div>
   </div>
@@ -279,7 +286,7 @@
 
 <!-- SERVICES -->
 <section id="svc-s" style="position:relative;overflow:hidden;">
-<div style="position:absolute;inset:0;background:url('img/WhatsApp%20Image%202026-04-18%20at%2012.18.38%20AM.jpeg') center center/cover no-repeat;"></div>
+<div id="dyn-services-bg" style="position:absolute;inset:0;background:url('img/WhatsApp%20Image%202026-04-18%20at%2012.18.38%20AM.jpeg') center center/cover no-repeat;"></div>
 <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,14,28,.88) 0%,rgba(10,22,40,.82) 50%,rgba(15,31,56,.85) 100%);"></div>
 <div class="sec" style="position:relative;z-index:2;">
   <div class="sec-hd rv">

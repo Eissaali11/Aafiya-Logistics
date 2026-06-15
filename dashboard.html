@@ -60,6 +60,7 @@
     <div class="sb-it" onclick="showP('svc-p',this)"><span class="sb-ic">⚙️</span><span data-ar>الخدمات</span><span data-en>Services</span></div>
     <div class="sb-it" onclick="showP('test-p',this)"><span class="sb-ic">⭐</span><span data-ar>التقييمات</span><span data-en>Testimonials</span></div>
     <div class="sb-lbl"><span data-ar>الإعدادات</span><span data-en>Settings</span></div>
+    <div class="sb-it" onclick="showP('appearance-p',this)"><span class="sb-ic">🎨</span><span data-ar>مظهر ومحتوى الموقع</span><span data-en>Theme & Content</span></div>
     <div class="sb-it" onclick="showP('contact-p',this)"><span class="sb-ic">📞</span><span data-ar>التواصل</span><span data-en>Contact</span></div>
     <div class="sb-it" onclick="showP('social-p',this)"><span class="sb-ic">🔗</span><span data-ar>السوشل ميديا</span><span data-en>Social Media</span></div>
     <div class="sb-lbl"><span data-ar>الموقع</span><span data-en>Site</span></div>
@@ -97,6 +98,171 @@
     <div id="panel-svc-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الخدمات</span><span data-en>Services</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('svc-mo')">+</button></div><div class="il" id="svc-list"></div></div>
     <!-- Testimonials Panel -->
     <div id="panel-test-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>التقييمات</span><span data-en>Testimonials</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('test-mo')">+</button></div><div class="il" id="test-list"></div></div>
+    <!-- Appearance and Content Settings Panel -->
+    <div id="panel-appearance-p" class="dp">
+      <div class="dh">
+        <div>
+          <div class="dt"><span data-ar>مظهر ومحتوى الموقع</span><span data-en>Theme & Content Settings</span></div>
+          <div class="ds"><span data-ar>تخصيص كامل للألوان والشعارات ومحتوى البنرات والخلفيات</span><span data-en>Customize colors, logos, banners, and background images</span></div>
+        </div>
+        <button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="saveSettings()"><span data-ar>💾 حفظ الإعدادات</span><span data-en>💾 Save Settings</span></button>
+      </div>
+      
+      <div class="tabs" style="margin-bottom: 20px; display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px;">
+        <button class="tab act settings-tab-btn" onclick="switchSettingsTab('general', this)"><span data-ar>عام واسم الموقع</span><span data-en>General</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('colors', this)"><span data-ar>ألوان الهوية</span><span data-en>Colors</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('hero', this)"><span data-ar>قسم البنر الترحيبي</span><span data-en>Hero Section</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('about', this)"><span data-ar>من نحن ورؤيتنا</span><span data-en>About & Vision</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('backgrounds', this)"><span data-ar>الخلفيات</span><span data-en>Backgrounds</span></button>
+      </div>
+
+      <div class="settings-content-wrapper" style="background: var(--card); border: 1px solid var(--bdr); border-radius: 16px; padding: 24px;">
+        
+        <!-- Tab 1: General Settings -->
+        <div class="settings-tab-panel act" id="set-tab-general">
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>اسم الموقع (عربي)</span><span data-en>Site Name (AR)</span></label><input type="text" id="set-name-ar"></div>
+            <div class="f-grp"><label><span data-ar>اسم الموقع (إنجليزي)</span><span data-en>Site Name (EN)</span></label><input type="text" id="set-name-en"></div>
+            <div class="f-grp full">
+              <label><span data-ar>شعار الموقع</span><span data-en>Website Logo</span></label>
+              <div class="up-area" id="logo-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-logo-val','logo-prev','logo-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-logo-val','logo-prev','logo-up')">
+                <img id="logo-prev" class="up-prev" style="max-height: 120px; object-fit: contain;">
+                <span class="up-ic" id="logo-up-ic">🖼️</span>
+                <div class="up-txt" id="logo-up-tx"><span data-ar>اسحب أو انقر لرفع شعار جديد</span><span data-en>Drag or click to upload logo</span></div>
+                <div class="up-hint">PNG, JPG, SVG — max 2MB</div>
+              </div>
+              <input type="hidden" id="set-logo-val">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Theme Colors Settings -->
+        <div class="settings-tab-panel" id="set-tab-colors" style="display:none;">
+          <h4 style="margin-bottom: 12px; color: var(--or);"><span data-ar>الوضع الداكن (Dark Mode)</span><span data-en>Dark Mode Colors</span></h4>
+          <div class="fg" style="margin-bottom: 24px;">
+            <div class="f-grp"><label><span data-ar>اللون الأساسي</span><span data-en>Primary Color</span></label><input type="color" id="set-col-dark-or" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>اللون الثانوي</span><span data-en>Secondary Color</span></label><input type="color" id="set-col-dark-or2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الرئيسي</span><span data-en>Main Background</span></label><input type="color" id="set-col-dark-bg" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الثانوي</span><span data-en>Secondary Background</span></label><input type="color" id="set-col-dark-bg2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون بطاقات العرض</span><span data-en>Card Background</span></label><input type="color" id="set-col-dark-card" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخط الرئيسي</span><span data-en>Text Color</span></label><input type="color" id="set-col-dark-txt" style="height:44px;padding:2px;cursor:pointer;"></div>
+          </div>
+
+          <h4 style="margin-bottom: 12px; color: var(--or);"><span data-ar>الوضع المضيء (Light Mode)</span><span data-en>Light Mode Colors</span></h4>
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>اللون الأساسي</span><span data-en>Primary Color</span></label><input type="color" id="set-col-light-or" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>اللون الثانوي</span><span data-en>Secondary Color</span></label><input type="color" id="set-col-light-or2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الرئيسي</span><span data-en>Main Background</span></label><input type="color" id="set-col-light-bg" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الثانوي</span><span data-en>Secondary Background</span></label><input type="color" id="set-col-light-bg2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون بطاقات العرض</span><span data-en>Card Background</span></label><input type="color" id="set-col-light-card" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخط الرئيسي</span><span data-en>Text Color</span></label><input type="color" id="set-col-light-txt" style="height:44px;padding:2px;cursor:pointer;"></div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Hero Section Settings -->
+        <div class="settings-tab-panel" id="set-tab-hero" style="display:none;">
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>نص الشارة الصغير (عربي)</span><span data-en>Badge Text (AR)</span></label><input type="text" id="set-hero-badge-ar"></div>
+            <div class="f-grp"><label><span data-ar>نص الشارة الصغير (إنجليزي)</span><span data-en>Badge Text (EN)</span></label><input type="text" id="set-hero-badge-en"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - السطر الأول (عربي)</span><span data-en>Title - Line 1 (AR)</span></label><input type="text" id="set-hero-l1-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - S1 (إنجليزي)</span><span data-en>Title - L1 (EN)</span></label><input type="text" id="set-hero-l1-en"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - السطر الثاني (عربي)</span><span data-en>Title - Line 2 (AR)</span></label><input type="text" id="set-hero-l2-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - S2 (إنجليزي)</span><span data-en>Title - L2 (EN)</span></label><input type="text" id="set-hero-l2-en"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - السطر الثالث (عربي)</span><span data-en>Title - Line 3 (AR)</span></label><input type="text" id="set-hero-l3-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - S3 (إنجليزي)</span><span data-en>Title - L3 (EN)</span></label><input type="text" id="set-hero-l3-en"></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الترحيبي (عربي)</span><span data-en>Hero Subtitle (AR)</span></label><textarea id="set-hero-sub-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الترحيبي (إنجليزي)</span><span data-en>Hero Subtitle (EN)</span></label><textarea id="set-hero-sub-en"></textarea></div>
+          </div>
+        </div>
+
+        <!-- Tab 4: About & Vision Settings -->
+        <div class="settings-tab-panel" id="set-tab-about" style="display:none;">
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>العنوان الرئيسي - من نحن (عربي)</span><span data-en>About Hero Title (AR)</span></label><input type="text" id="set-abt-title-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان الرئيسي - من نحن (إنجليزي)</span><span data-en>About Hero Title (EN)</span></label><input type="text" id="set-abt-title-en"></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الفرعي لقسم من نحن (عربي)</span><span data-en>About Hero Subtitle (AR)</span></label><textarea id="set-abt-sub-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الفرعي لقسم من نحن (إنجليزي)</span><span data-en>About Hero Subtitle (EN)</span></label><textarea id="set-abt-sub-en"></textarea></div>
+            
+            <div class="f-grp"><label><span data-ar>عنوان الرؤية (عربي)</span><span data-en>Vision Title (AR)</span></label><input type="text" id="set-vis-title-ar"></div>
+            <div class="f-grp"><label><span data-ar>عنوان الرؤية (إنجليزي)</span><span data-en>Vision Title (EN)</span></label><input type="text" id="set-vis-title-en"></div>
+            <div class="f-grp full"><label><span data-ar>نص الرؤية (عربي)</span><span data-en>Vision Text (AR)</span></label><textarea id="set-vis-text-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>نص الرؤية (إنجليزي)</span><span data-en>Vision Text (EN)</span></label><textarea id="set-vis-text-en"></textarea></div>
+
+            <div class="f-grp"><label><span data-ar>عنوان الرسالة (عربي)</span><span data-en>Mission Title (AR)</span></label><input type="text" id="set-mis-title-ar"></div>
+            <div class="f-grp"><label><span data-ar>عنوان الرسالة (إنجليزي)</span><span data-en>Mission Title (EN)</span></label><input type="text" id="set-mis-title-en"></div>
+            <div class="f-grp full"><label><span data-ar>نص الرسالة (عربي)</span><span data-en>Mission Text (AR)</span></label><textarea id="set-mis-text-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>نص الرسالة (إنجليزي)</span><span data-en>Mission Text (EN)</span></label><textarea id="set-mis-text-en"></textarea></div>
+
+            <div class="f-grp full">
+              <label><span data-ar>صورة قسم "من نحن" الرئيسي</span><span data-en>About Hero Image</span></label>
+              <div class="up-area" id="abt-hero-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-abt-hero-img-val','abt-hero-prev','abt-hero-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-abt-hero-img-val','abt-hero-prev','abt-hero-up')">
+                <img id="abt-hero-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <span class="up-ic" id="abt-hero-up-ic">🖼️</span>
+                <div class="up-txt" id="abt-hero-up-tx"><span data-ar>اسحب أو انقر لرفع صورة "من نحن"</span><span data-en>Drag or click to upload main about image</span></div>
+              </div>
+              <input type="hidden" id="set-abt-hero-img-val">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Background Images Settings -->
+        <div class="settings-tab-panel" id="set-tab-backgrounds" style="display:none;">
+          <div class="fg">
+            <!-- Hero Background -->
+            <div class="f-grp full">
+              <label><span data-ar>خلفية البنر الترحيبي (Hero Background)</span><span data-en>Hero Banner Background</span></label>
+              <div class="up-area" id="hero-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-hero-val','hero-bg-prev','hero-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-hero-val','hero-bg-prev','hero-bg-up')">
+                <img id="hero-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <span class="up-ic" id="hero-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="hero-bg-up-tx"><span data-ar>اسحب أو انقر لرفع صورة خلفية البنر</span><span data-en>Drag or click to upload hero background</span></div>
+              </div>
+              <input type="hidden" id="set-bg-hero-val">
+            </div>
+
+            <!-- Services Background -->
+            <div class="f-grp full">
+              <label><span data-ar>خلفية قسم الخدمات (Services Background)</span><span data-en>Services Section Background</span></label>
+              <div class="up-area" id="services-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-services-val','services-bg-prev','services-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-services-val','services-bg-prev','services-bg-up')">
+                <img id="services-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <span class="up-ic" id="services-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="services-bg-up-tx"><span data-ar>اسحب أو انقر لرفع صورة خلفية الخدمات</span><span data-en>Drag or click to upload services background</span></div>
+              </div>
+              <input type="hidden" id="set-bg-services-val">
+            </div>
+
+            <!-- Vision / Mission Background -->
+            <div class="f-grp full">
+              <label><span data-ar>خلفية قسم الرؤية والرسالة (Vision & Mission Background)</span><span data-en>Vision & Mission Background</span></label>
+              <div class="up-area" id="vm-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-vm-val','vm-bg-prev','vm-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-vm-val','vm-bg-prev','vm-bg-up')">
+                <img id="vm-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <span class="up-ic" id="vm-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="vm-bg-up-tx"><span data-ar>اسحب أو انقر لرفع خلفية الرؤية والرسالة</span><span data-en>Drag or click to upload vision background</span></div>
+              </div>
+              <input type="hidden" id="set-bg-vm-val">
+            </div>
+
+            <!-- Values Background -->
+            <div class="f-grp full">
+              <label><span data-ar>خلفية قسم القيم الأساسية (Values Background)</span><span data-en>Values Background</span></label>
+              <div class="up-area" id="vals-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-vals-val','vals-bg-prev','vals-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-vals-val','vals-bg-prev','vals-bg-up')">
+                <img id="vals-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <span class="up-ic" id="vals-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="vals-bg-up-tx"><span data-ar>اسحب أو انقر لرفع خلفية القيم الأساسية</span><span data-en>Drag or click to upload values background</span></div>
+              </div>
+              <input type="hidden" id="set-bg-vals-val">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Contact Panel -->
     <div id="panel-contact-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>بيانات التواصل</span><span data-en>Contact Info</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="saveContact()"><span data-ar>💾 حفظ</span><span data-en>💾 Save</span></button></div><div class="fg" id="contact-panel-form" style="padding:20px;"><div class="f-grp"><label><span data-ar>الهاتف</span><span data-en>Phone</span></label><input type="tel" id="ct-phone" placeholder="+966..."></div><div class="f-grp"><label>WhatsApp</label><input type="tel" id="ct-whatsapp" placeholder="+966..."></div><div class="f-grp"><label>Email</label><input type="email" id="ct-email" placeholder="info@..."></div><div class="f-grp"><label><span data-ar>الموقع الإلكتروني</span><span data-en>Website</span></label><input type="text" id="ct-website" placeholder="raya1.site"></div><div class="f-grp"><label><span data-ar>العنوان (عربي)</span><span data-en>Location (Arabic)</span></label><input type="text" id="ct-loc-ar" placeholder="..."></div><div class="f-grp"><label><span data-ar>العنوان (إنجليزي)</span><span data-en>Location (English)</span></label><input type="text" id="ct-loc-en" placeholder="..."></div></div></div>
     <!-- Social Media Panel -->
