@@ -506,7 +506,6 @@ body{font-family:var(--font-ar);background:var(--bg);color:var(--txt);overflow-x
 /* ── STATS BAR ── */
 .stats-bar{background:linear-gradient(135deg,var(--or),var(--or2));padding:48px 0;margin:0;}
 .stats-inner{max-width:1280px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
-.sb-item{}
 .sb-val{font-size:40px;font-weight:900;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:2px;}
 .sb-lbl{font-size:13px;color:rgba(255,255,255,.85);margin-top:4px;}
 
@@ -804,3 +803,78 @@ tr:hover td{background:rgba(255,107,26,.03);}
 .social-display{display:flex;gap:10px;flex-wrap:wrap;}
 .ft-social{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
 .ft-social .social-link{width:34px;height:34px;font-size:14px;}
+
+/* ===================================================
+   GSAP INITIAL STATES & ANIMATION UTILITIES (FOUC PREVENTION)
+   =================================================== */
+.js-enabled #nav {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.js-enabled .hero-badge {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.js-enabled .hero-title .ln {
+  opacity: 0;
+  transform: translateY(40px);
+  display: block;
+}
+.js-enabled .hero-sub {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.js-enabled .hero-btns {
+  opacity: 0;
+  transform: translateY(15px) scale(0.95);
+}
+.js-enabled .hero-card {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Grids for Batch scroll reveals */
+.js-enabled .svc-card,
+.js-enabled .role-card,
+.js-enabled .prj-card,
+.js-enabled .why-card,
+.js-enabled .abt-val-card,
+.js-enabled .abt-vm-card,
+.js-enabled .step-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Keep revealed elements visible when GSAP inline styles are cleared */
+.js-enabled .revealed,
+.js-enabled .svc-card.revealed,
+.js-enabled .role-card.revealed,
+.js-enabled .prj-card.revealed,
+.js-enabled .why-card.revealed,
+.js-enabled .abt-val-card.revealed,
+.js-enabled .abt-vm-card.revealed,
+.js-enabled .step-card.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reduced motion preference override */
+@media (prefers-reduced-motion: reduce) {
+  .js-enabled #nav,
+  .js-enabled .hero-badge,
+  .js-enabled .hero-title .ln,
+  .js-enabled .hero-sub,
+  .js-enabled .hero-btns,
+  .js-enabled .hero-card,
+  .js-enabled .svc-card,
+  .js-enabled .role-card,
+  .js-enabled .prj-card,
+  .js-enabled .why-card,
+  .js-enabled .abt-val-card,
+  .js-enabled .abt-vm-card,
+  .js-enabled .step-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
