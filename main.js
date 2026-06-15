@@ -801,6 +801,32 @@ function applyCustomTheme() {
   const mapping = {
     hero: '#hero-s .hero-bg, #hero-s',
     about: '#about-s',
+    vm: '#dyn-vm-bg',
+    vals: '#dyn-vals-bg',
+    services: '#dyn-services-bg',
+    roles: '#dyn-roles-bg',
+    whyUs: '#dyn-whyUs-bg',
+    howWeWork: '#dyn-howWeWork-bg',
+    projects: '#dyn-projects-bg',
+    news: '#dyn-news-bg',
+    gallery: '#dyn-gallery-bg',
+    team: '#dyn-team-bg',
+    jobs: '#dyn-jobs-bg',
+    testimonials: '#dyn-testimonials-bg',
+    partners: '#dyn-partners-bg',
+    contact: '#dyn-contact-bg'
+  };
+  
+  for (const [key, selector] of Object.entries(mapping)) {
+    if (bg[key]) {
+      css += ` ${selector} { background-image: url('${bg[key]}') !important; }\n`;
+    }
+  }
+  
+  styleEl.textContent = css;
+
+  // Toggle has-bg class on parent sections to show background layers and overlays
+  const parentMapping = {
     vm: '.abt-vm-sec',
     vals: '.abt-vals-sec',
     services: '#svc-s',
@@ -817,13 +843,16 @@ function applyCustomTheme() {
     contact: '#contact-s'
   };
   
-  for (const [key, selector] of Object.entries(mapping)) {
-    if (bg[key]) {
-      css += ` ${selector} { background-image: url('${bg[key]}') !important; background-size: cover !important; background-position: center !important; }\n`;
+  for (const [key, parentSelector] of Object.entries(parentMapping)) {
+    const parent = document.querySelector(parentSelector);
+    if (parent) {
+      if (bg[key]) {
+        parent.classList.add('has-bg');
+      } else {
+        parent.classList.remove('has-bg');
+      }
     }
   }
-  
-  styleEl.textContent = css;
 }
 
 function applyLogo() {

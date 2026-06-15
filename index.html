@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=21">
+<link rel="stylesheet" href="style.css?v=22">
 
 <script type="application/ld+json">
 {
@@ -183,8 +183,10 @@
 </div>
 
 <!-- Vision & Mission -->
-<div class="abt-vm-sec">
-  <div class="abt-container">
+<div class="abt-vm-sec" style="position:relative;overflow:hidden;">
+  <div id="dyn-vm-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="abt-container" style="position:relative;z-index:2;">
     <div class="abt-vm-grid">
       <!-- Vision -->
       <div class="abt-vm-card rv d1">
@@ -205,8 +207,10 @@
 </div>
 
 <!-- Values Bento -->
-<div class="abt-vals-sec">
-  <div class="abt-container">
+<div class="abt-vals-sec" style="position:relative;overflow:hidden;">
+  <div id="dyn-vals-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="abt-container" style="position:relative;z-index:2;">
     <div class="abt-sec-hd rv">
       <h2 class="abt-sec-title"><span data-ar>القيم الأساسية</span><span data-en>Core Values</span></h2>
       <p class="abt-sec-sub"><span data-ar>المبادئ التي تقود عملياتنا وتحدد مسارنا نحو التميز.</span><span data-en>The principles that drive our operations and define our path to excellence.</span></p>
@@ -289,8 +293,10 @@
 <section style="background:var(--bg2);padding:1px 0;">
 
 <!-- WORKFORCE ROLES -->
-<section id="roles-s">
-<div class="sec">
+<section id="roles-s" style="position:relative;overflow:hidden;">
+  <div id="dyn-roles-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
   <div class="sec-hd rv">
     <h2 class="sec-title"><span data-ar>كوادرنا <span class="hl">المتخصصة</span></span><span data-en>Our Specialized <span class="hl">Workforce</span></span></h2>
     <p class="sec-sub"><span data-ar>نحن نوفر قوة عاملة مدربة ومؤهلة لتلبية كافة احتياجات عملياتك اللوجستية، بمرونة وكفاءة عالية لضمان استمرارية أعمالك.</span><span data-en>We provide trained and qualified workforce to meet all your logistics operational needs, with flexibility and high efficiency to ensure your business continuity.</span></p>
@@ -399,131 +405,151 @@
 </section>
 
 <!-- WHY US -->
-<section id="why-us-s" style="background:var(--bg2);padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>لماذا عافية</span><span data-en>Why Aafiya</span></div>
-    <h2 class="sec-title"><span data-ar>لماذا تختار <span class="hl">عافية</span></span><span data-en>Why Choose <span class="hl">Aafiya</span></span></h2>
-    <p class="sec-sub"><span data-ar>نقدم حلولاً متميزة تجمع بين السرعة والموثوقية والكفاءة، مع التزام كامل بمعايير الجودة والسلامة.</span><span data-en>We offer distinctive solutions combining speed, reliability, and efficiency, with full commitment to quality and safety standards.</span></p>
+<section id="why-us-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-whyUs-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>لماذا عافية</span><span data-en>Why Aafiya</span></div>
+      <h2 class="sec-title"><span data-ar>لماذا تختار <span class="hl">عافية</span></span><span data-en>Why Choose <span class="hl">Aafiya</span></span></h2>
+      <p class="sec-sub"><span data-ar>نقدم حلولاً متميزة تجمع بين السرعة والموثوقية والكفاءة، مع التزام كامل بمعايير الجودة والسلامة.</span><span data-en>We offer distinctive solutions combining speed, reliability, and efficiency, with full commitment to quality and safety standards.</span></p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv d1"><div class="why-ic"><i class="fa-solid fa-bolt"></i></div><div><div class="why-tit"><span data-ar>السرعة</span><span data-en>Speed</span></div><div class="why-txt"><span data-ar>خيارات توصيل في نفس اليوم أو اليوم التالي</span><span data-en>Same-day and next-day delivery options</span></div></div></div>
+      <div class="why-card rv d2"><div class="why-ic"><i class="fa-solid fa-shield-halved"></i></div><div><div class="why-tit"><span data-ar>الموثوقية</span><span data-en>Reliability</span></div><div class="why-txt"><span data-ar>معدل التزام يتجاوز 99% مع شفافية كاملة</span><span data-en>Over 99% commitment rate with complete transparency</span></div></div></div>
+      <div class="why-card rv d3"><div class="why-ic">🇸🇦</div><div><div class="why-tit"><span data-ar>الكوادر الوطنية</span><span data-en>Local Expertise</span></div><div class="why-txt"><span data-ar>فرق عمل سعودية مؤهلة ومتوافقة مع رؤية 2030</span><span data-en>Qualified Saudi workforce aligned with Vision 2030</span></div></div></div>
+      <div class="why-card rv d4"><div class="why-ic"><i class="fa-solid fa-chart-line"></i></div><div><div class="why-tit"><span data-ar>الحلول المرنة</span><span data-en>Scalability</span></div><div class="why-txt"><span data-ar>خدمات قابلة للتوسع تنمو مع نمو أعمالك</span><span data-en>Flexible solutions that grow with your business</span></div></div></div>
+    </div>
   </div>
-  <div class="why-grid">
-    <div class="why-card rv d1"><div class="why-ic"><i class="fa-solid fa-bolt"></i></div><div><div class="why-tit"><span data-ar>السرعة</span><span data-en>Speed</span></div><div class="why-txt"><span data-ar>خيارات توصيل في نفس اليوم أو اليوم التالي</span><span data-en>Same-day and next-day delivery options</span></div></div></div>
-    <div class="why-card rv d2"><div class="why-ic"><i class="fa-solid fa-shield-halved"></i></div><div><div class="why-tit"><span data-ar>الموثوقية</span><span data-en>Reliability</span></div><div class="why-txt"><span data-ar>معدل التزام يتجاوز 99% مع شفافية كاملة</span><span data-en>Over 99% commitment rate with complete transparency</span></div></div></div>
-    <div class="why-card rv d3"><div class="why-ic">🇸🇦</div><div><div class="why-tit"><span data-ar>الكوادر الوطنية</span><span data-en>Local Expertise</span></div><div class="why-txt"><span data-ar>فرق عمل سعودية مؤهلة ومتوافقة مع رؤية 2030</span><span data-en>Qualified Saudi workforce aligned with Vision 2030</span></div></div></div>
-    <div class="why-card rv d4"><div class="why-ic"><i class="fa-solid fa-chart-line"></i></div><div><div class="why-tit"><span data-ar>الحلول المرنة</span><span data-en>Scalability</span></div><div class="why-txt"><span data-ar>خدمات قابلة للتوسع تنمو مع نمو أعمالك</span><span data-en>Flexible solutions that grow with your business</span></div></div></div>
-  </div>
-</div>
 </section>
 
 <!-- HOW WE WORK -->
-<section id="how-we-work-s" style="padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>كيف نعمل</span><span data-en>How We Work</span></div>
-    <h2 class="sec-title"><span data-ar>منهجيتنا <span class="hl">في التنفيذ</span></span><span data-en>Our <span class="hl">Methodology</span></span></h2>
+<section id="how-we-work-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-howWeWork-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>كيف نعمل</span><span data-en>How We Work</span></div>
+      <h2 class="sec-title"><span data-ar>منهجيتنا <span class="hl">في التنفيذ</span></span><span data-en>Our <span class="hl">Methodology</span></span></h2>
+    </div>
+    <div class="how-steps">
+      <div class="step-card rv d1"><div class="step-num">01</div><div class="step-tit"><span data-ar>التخطيط والتنسيق</span><span data-en>Planning & Coordination</span></div><div class="step-txt"><span data-ar>نحلل احتياجاتك بدقة ونصمم حلاً مخصصاً لعملياتك.</span><span data-en>We precisely analyze your needs and design a customized solution.</span></div><ul class="step-list"><li><span data-ar>تحليل احتياجات العميل بدقة</span><span data-en>Precise client needs analysis</span></li><li><span data-ar>تصميم حل مخصص</span><span data-en>Customized solution design</span></li><li><span data-ar>تحديد أفضل المسارات</span><span data-en>Optimal route planning</span></li></ul></div>
+      <div class="step-card rv d2"><div class="step-num">02</div><div class="step-tit"><span data-ar>التنفيذ والمراقبة</span><span data-en>Execution & Monitoring</span></div><div class="step-txt"><span data-ar>ننفذ العمليات بمعايير عالية مع مراقبة مستمرة وتتبع لحظي.</span><span data-en>We execute operations with high standards and continuous real-time monitoring.</span></div><ul class="step-list"><li><span data-ar>تنفيذ بمعايير عالية</span><span data-en>High-standard execution</span></li><li><span data-ar>مراقبة مستمرة وتتبع لحظي</span><span data-en>Continuous real-time tracking</span></li></ul></div>
+      <div class="step-card rv d3"><div class="step-num">03</div><div class="step-tit"><span data-ar>التقارير والتحسين</span><span data-en>Reporting & Improvement</span></div><div class="step-txt"><span data-ar>نقدم تقارير دورية وتحسين مستمر للوصول لأعلى مستوى.</span><span data-en>We deliver periodic reports and continuous improvement for peak performance.</span></div><ul class="step-list"><li><span data-ar>تقارير دورية شاملة</span><span data-en>Comprehensive periodic reports</span></li><li><span data-ar>تحسين مستمر للعمليات</span><span data-en>Continuous process improvement</span></li></ul></div>
+    </div>
   </div>
-  <div class="how-steps">
-    <div class="step-card rv d1"><div class="step-num">01</div><div class="step-tit"><span data-ar>التخطيط والتنسيق</span><span data-en>Planning & Coordination</span></div><div class="step-txt"><span data-ar>نحلل احتياجاتك بدقة ونصمم حلاً مخصصاً لعملياتك.</span><span data-en>We precisely analyze your needs and design a customized solution.</span></div><ul class="step-list"><li><span data-ar>تحليل احتياجات العميل بدقة</span><span data-en>Precise client needs analysis</span></li><li><span data-ar>تصميم حل مخصص</span><span data-en>Customized solution design</span></li><li><span data-ar>تحديد أفضل المسارات</span><span data-en>Optimal route planning</span></li></ul></div>
-    <div class="step-card rv d2"><div class="step-num">02</div><div class="step-tit"><span data-ar>التنفيذ والمراقبة</span><span data-en>Execution & Monitoring</span></div><div class="step-txt"><span data-ar>ننفذ العمليات بمعايير عالية مع مراقبة مستمرة وتتبع لحظي.</span><span data-en>We execute operations with high standards and continuous real-time monitoring.</span></div><ul class="step-list"><li><span data-ar>تنفيذ بمعايير عالية</span><span data-en>High-standard execution</span></li><li><span data-ar>مراقبة مستمرة وتتبع لحظي</span><span data-en>Continuous real-time tracking</span></li></ul></div>
-    <div class="step-card rv d3"><div class="step-num">03</div><div class="step-tit"><span data-ar>التقارير والتحسين</span><span data-en>Reporting & Improvement</span></div><div class="step-txt"><span data-ar>نقدم تقارير دورية وتحسين مستمر للوصول لأعلى مستوى.</span><span data-en>We deliver periodic reports and continuous improvement for peak performance.</span></div><ul class="step-list"><li><span data-ar>تقارير دورية شاملة</span><span data-en>Comprehensive periodic reports</span></li><li><span data-ar>تحسين مستمر للعمليات</span><span data-en>Continuous process improvement</span></li></ul></div>
-  </div>
-</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="prj-s" style="background:var(--bg2);padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>مشاريعنا</span><span data-en>Projects</span></div>
-    <h2 class="sec-title"><span data-ar>آخر <span class="hl">مشاريعنا</span></span><span data-en>Our Latest <span class="hl">Projects</span></span></h2>
+<section id="prj-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-projects-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>مشاريعنا</span><span data-en>Projects</span></div>
+      <h2 class="sec-title"><span data-ar>آخر <span class="hl">مشاريعنا</span></span><span data-en>Our Latest <span class="hl">Projects</span></span></h2>
+    </div>
+    <div class="prj-grid" id="prj-display"></div>
   </div>
-  <div class="prj-grid" id="prj-display"></div>
-</div>
 </section>
 
 <!-- NEWS -->
-<section id="news-s">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>أخبارنا</span><span data-en>News</span></div>
-    <h2 class="sec-title"><span data-ar>آخر <span class="hl">أخبارنا</span></span><span data-en>Latest <span class="hl">News</span></span></h2>
+<section id="news-s" style="position:relative;overflow:hidden;">
+  <div id="dyn-news-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>أخبارنا</span><span data-en>News</span></div>
+      <h2 class="sec-title"><span data-ar>آخر <span class="hl">أخبارنا</span></span><span data-en>Latest <span class="hl">News</span></span></h2>
+    </div>
+    <div class="news-grid" id="news-display"></div>
   </div>
-  <div class="news-grid" id="news-display"></div>
-</div>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery-s" style="background:var(--bg2);padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>معرض الصور</span><span data-en>Gallery</span></div>
-    <h2 class="sec-title"><span data-ar>معرض <span class="hl">أعمالنا</span></span><span data-en>Our <span class="hl">Gallery</span></span></h2>
+<section id="gallery-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-gallery-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>معرض الصور</span><span data-en>Gallery</span></div>
+      <h2 class="sec-title"><span data-ar>معرض <span class="hl">أعمالنا</span></span><span data-en>Our <span class="hl">Gallery</span></span></h2>
+    </div>
+    <div class="gallery-filter">
+      <button class="gf-btn act" onclick="filterGal('all',this)"><span data-ar>الكل</span><span data-en>All</span></button>
+      <button class="gf-btn" onclick="filterGal('warehouse',this)"><span data-ar>مستودعات</span><span data-en>Warehouses</span></button>
+      <button class="gf-btn" onclick="filterGal('delivery',this)"><span data-ar>توصيل</span><span data-en>Delivery</span></button>
+      <button class="gf-btn" onclick="filterGal('team',this)"><span data-ar>فريق العمل</span><span data-en>Team</span></button>
+    </div>
+    <div class="gallery-grid" id="gallery-display"></div>
   </div>
-  <div class="gallery-filter">
-    <button class="gf-btn act" onclick="filterGal('all',this)"><span data-ar>الكل</span><span data-en>All</span></button>
-    <button class="gf-btn" onclick="filterGal('warehouse',this)"><span data-ar>مستودعات</span><span data-en>Warehouses</span></button>
-    <button class="gf-btn" onclick="filterGal('delivery',this)"><span data-ar>توصيل</span><span data-en>Delivery</span></button>
-    <button class="gf-btn" onclick="filterGal('team',this)"><span data-ar>فريق العمل</span><span data-en>Team</span></button>
-  </div>
-  <div class="gallery-grid" id="gallery-display"></div>
-</div>
 </section>
 
 <!-- TEAM -->
-<section id="team-s">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>فريقنا</span><span data-en>Our Team</span></div>
-    <h2 class="sec-title"><span data-ar>فريق <span class="hl">عافية</span></span><span data-en><span class="hl">Aafiya</span> Team</span></h2>
-    <p class="sec-sub"><span data-ar>نخبة من المتخصصين المدربين بعناية لتقديم خدمات لوجستية عالية الجودة.</span><span data-en>Elite specialists carefully trained to deliver high-quality logistics services.</span></p>
+<section id="team-s" style="position:relative;overflow:hidden;">
+  <div id="dyn-team-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>فريقنا</span><span data-en>Our Team</span></div>
+      <h2 class="sec-title"><span data-ar>فريق <span class="hl">عافية</span></span><span data-en><span class="hl">Aafiya</span> Team</span></h2>
+      <p class="sec-sub"><span data-ar>نخبة من المتخصصين المدربين بعناية لتقديم خدمات لوجستية عالية الجودة.</span><span data-en>Elite specialists carefully trained to deliver high-quality logistics services.</span></p>
+    </div>
+    <div class="team-grid" id="team-display"></div>
   </div>
-  <div class="team-grid" id="team-display"></div>
-</div>
 </section>
 
 <!-- JOBS -->
-<section id="jobs-s" style="background:var(--bg2);padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>وظائف</span><span data-en>Careers</span></div>
-    <h2 class="sec-title"><span data-ar>انضم إلى <span class="hl">فريقنا</span></span><span data-en>Join Our <span class="hl">Team</span></span></h2>
-    <p class="sec-sub"><span data-ar>نبحث دائماً عن كفاءات متميزة للانضمام إلى عائلة عافية.</span><span data-en>We are always looking for exceptional talent to join the Aafiya family.</span></p>
+<section id="jobs-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-jobs-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>وظائف</span><span data-en>Careers</span></div>
+      <h2 class="sec-title"><span data-ar>انضم إلى <span class="hl">فريقنا</span></span><span data-en>Join Our <span class="hl">Team</span></span></h2>
+      <p class="sec-sub"><span data-ar>نبحث دائماً عن كفاءات متميزة للانضمام إلى عائلة عافية.</span><span data-en>We are always looking for exceptional talent to join the Aafiya family.</span></p>
+    </div>
+    <div class="jobs-list" id="jobs-display"></div>
   </div>
-  <div class="jobs-list" id="jobs-display"></div>
-</div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="test-s" style="background:var(--bg2);padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>آراء عملاؤنا</span><span data-en>Testimonials</span></div>
-    <h2 class="sec-title"><span data-ar>ماذا يقول <span class="hl">عملاؤنا</span></span><span data-en>What Our <span class="hl">Clients Say</span></span></h2>
+<section id="test-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-testimonials-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>آراء عملاؤنا</span><span data-en>Testimonials</span></div>
+      <h2 class="sec-title"><span data-ar>ماذا يقول <span class="hl">عملاؤنا</span></span><span data-en>What Our <span class="hl">Clients Say</span></span></h2>
+    </div>
+    <div class="test-slider" id="test-display"></div>
   </div>
-  <div class="test-slider" id="test-display"></div>
-</div>
 </section>
 
 <!-- PARTNERS -->
-<section id="ptn-s">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>شركاؤنا</span><span data-en>Partners</span></div>
-    <h2 class="sec-title"><span data-ar>شركاء <span class="hl">النجاح</span></span><span data-en>Partners in <span class="hl">Success</span></span></h2>
+<section id="ptn-s" style="position:relative;overflow:hidden;">
+  <div id="dyn-partners-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>شركاؤنا</span><span data-en>Partners</span></div>
+      <h2 class="sec-title"><span data-ar>شركاء <span class="hl">النجاح</span></span><span data-en>Partners in <span class="hl">Success</span></span></h2>
+    </div>
+    <div class="ptn-grid" id="ptn-display"></div>
   </div>
-  <div class="ptn-grid" id="ptn-display"></div>
-</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact-s" style="background:var(--bg2);padding:1px 0;">
-<div class="sec">
-  <div class="sec-hd rv">
-    <div class="sec-badge">✦ <span data-ar>تواصل معنا</span><span data-en>Contact Us</span></div>
-    <h2 class="sec-title"><span data-ar>جاهزون <span class="hl">لخدمتك</span></span><span data-en>Ready to <span class="hl">Serve You</span></span></h2>
-    <p class="sec-sub"><span data-ar>تواصل معنا اليوم واطلب عرضك المجاني.</span><span data-en>Contact us today for your free quote.</span></p>
-  </div>
-  <div class="contact-wrap">
+<section id="contact-s" style="position:relative;overflow:hidden;padding:1px 0;">
+  <div id="dyn-contact-bg" class="sec-bg-layer"></div>
+  <div class="sec-bg-overlay"></div>
+  <div class="sec" style="position:relative;z-index:2;">
+    <div class="sec-hd rv">
+      <div class="sec-badge">✦ <span data-ar>تواصل معنا</span><span data-en>Contact Us</span></div>
+      <h2 class="sec-title"><span data-ar>جاهزون <span class="hl">لخدمتك</span></span><span data-en>Ready to <span class="hl">Serve You</span></span></h2>
+      <p class="sec-sub"><span data-ar>تواصل معنا اليوم واطلب عرضك المجاني.</span><span data-en>Contact us today for your free quote.</span></p>
+    </div>
+    <div class="contact-wrap">
     <div class="cinfo rv-l" id="contact-info-display">
       <div class="ci-item"><div class="ci-ic"><i class="fa-solid fa-phone"></i></div><div><div class="ci-lbl"><span data-ar>الهاتف</span><span data-en>Phone</span></div><div class="ci-val">+966558619232</div></div></div>
       <div class="ci-item"><div class="ci-ic"><i class="fa-brands fa-whatsapp"></i></div><div><div class="ci-lbl">WhatsApp</div><div class="ci-val">+966558619232</div></div></div>
