@@ -646,7 +646,7 @@ function initGSAPAccessibility() {
 
   // 1. Prefers Reduced Motion
   mm.add("(prefers-reduced-motion: reduce)", () => {
-    gsap.set("#nav, .hero-badge, .hero-title .ln, .hero-sub, .hero-btns, .hero-card, .svc-card, .role-card, .prj-card, .why-card, .abt-val-card, .abt-vm-card, .step-card", {
+    gsap.set("#nav, .hero-badge, .hero-title .ln, .hero-sub, .hero-btns, .svc-card, .role-card, .prj-card, .why-card, .abt-val-card, .abt-vm-card, .step-card, .ho1, .ho2, .hero-ring, .hero-mesh", {
       clearProps: "all"
     });
     const dot = document.getElementById('cur-dot');
@@ -667,6 +667,7 @@ function initGSAPAccessibility() {
     if (ring) ring.style.display = 'none';
     document.body.style.cursor = 'default';
     gsap.set("#hero-s .hero-bg", { clearProps: "yPercent" });
+    gsap.set(".ho1, .ho2, .hero-ring, .hero-mesh, .btn-primary, .btn-outline, .btn-cta", { clearProps: "all" });
     initGSAPScrollReveals();
   });
   
@@ -674,6 +675,8 @@ function initGSAPAccessibility() {
   mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
     initGSAPCursor();
     initGSAPScrollReveals();
+    initMagneticButtons();
+    initHeroParallax();
   });
 }
 
@@ -1110,6 +1113,57 @@ function saveSettings() {
   toast('<i class="fa-solid fa-circle-check"></i> ' + (lang === 'ar' ? 'تم حفظ الإعدادات بنجاح!' : 'Settings saved successfully!'));
 }
 
+function initMagneticButtons() {
+  if (typeof gsap === 'undefined') return;
+  
+  const buttons = document.querySelectorAll('.btn-primary, .btn-outline, .btn-cta');
+  buttons.forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      gsap.to(btn, {
+        x: x * 0.22,
+        y: y * 0.22,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    });
+  });
+}
+
+function initHeroParallax() {
+  if (typeof gsap === 'undefined') return;
+
+  const hero = document.getElementById('hero-s');
+  if (!hero) return;
+
+  const ho1 = hero.querySelector('.ho1');
+  const ho2 = hero.querySelector('.ho2');
+  const ring = hero.querySelector('.hero-ring');
+  const mesh = hero.querySelector('.hero-mesh');
+
+  window.addEventListener('mousemove', e => {
+    const cx = (e.clientX / window.innerWidth) - 0.5;
+    const cy = (e.clientY / window.innerHeight) - 0.5;
+
+    if (ho1) gsap.to(ho1, { x: cx * 35, y: cy * 35, duration: 0.8, ease: "power2.out" });
+    if (ho2) gsap.to(ho2, { x: -cx * 25, y: -cy * 25, duration: 0.8, ease: "power2.out" });
+    if (ring) gsap.to(ring, { x: cx * 15, y: cy * 15, duration: 0.8, ease: "power2.out" });
+    if (mesh) gsap.to(mesh, { x: -cx * 10, y: -cy * 10, duration: 0.8, ease: "power2.out" });
+  });
+}
+
 function playEntranceAnimation() {
   if (typeof gsap === 'undefined') {
     const loader = document.getElementById('loader');
@@ -1144,7 +1198,7 @@ function playEntranceAnimation() {
   .to(".hero-title .ln", {
     opacity: 1,
     y: 0,
-    stagger: 0.1,
+    stagger: 0.12,
   }, "-=0.4")
   .to(".hero-sub", {
     opacity: 1,
@@ -1157,6 +1211,8 @@ function playEntranceAnimation() {
   }, "-=0.5")
   .add(() => {
     initRv();
+    initMagneticButtons();
+    initHeroParallax();
   });
 }
 
