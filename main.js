@@ -698,6 +698,8 @@ function renderSettingsPanel() {
     document.getElementById('set-col-dark-or2').value = s.colors.dark.or2 || '#FF8C42';
     document.getElementById('set-col-dark-bg').value = s.colors.dark.bg || '#0A1628';
     document.getElementById('set-col-dark-bg2').value = s.colors.dark.bg2 || '#0F1F38';
+    const darkBg3 = document.getElementById('set-col-dark-bg3');
+    if (darkBg3) darkBg3.value = s.colors.dark.bg3 || '#162040';
     document.getElementById('set-col-dark-card').value = s.colors.dark.card || '#111D33';
     document.getElementById('set-col-dark-txt').value = s.colors.dark.txt || '#F0F4FF';
   }
@@ -707,6 +709,8 @@ function renderSettingsPanel() {
     document.getElementById('set-col-light-or2').value = s.colors.light.or2 || '#FF8C42';
     document.getElementById('set-col-light-bg').value = s.colors.light.bg || '#F0F4FA';
     document.getElementById('set-col-light-bg2').value = s.colors.light.bg2 || '#E4EBF5';
+    const lightBg3 = document.getElementById('set-col-light-bg3');
+    if (lightBg3) lightBg3.value = s.colors.light.bg3 || '#D8E3F0';
     document.getElementById('set-col-light-card').value = s.colors.light.card || '#FFFFFF';
     document.getElementById('set-col-light-txt').value = s.colors.light.txt || '#0F1F38';
   }
@@ -793,13 +797,16 @@ function saveSettings() {
   };
   DB.settings.logoUrl = document.getElementById('set-logo-val').value;
   
+  const darkBg3 = document.getElementById('set-col-dark-bg3');
+  const lightBg3 = document.getElementById('set-col-light-bg3');
+  
   DB.settings.colors = {
     dark: {
       or: document.getElementById('set-col-dark-or').value,
       or2: document.getElementById('set-col-dark-or2').value,
       bg: document.getElementById('set-col-dark-bg').value,
       bg2: document.getElementById('set-col-dark-bg2').value,
-      bg3: document.getElementById('set-col-dark-bg3').value,
+      bg3: darkBg3 ? darkBg3.value : '#162040',
       card: document.getElementById('set-col-dark-card').value,
       txt: document.getElementById('set-col-dark-txt').value
     },
@@ -808,7 +815,7 @@ function saveSettings() {
       or2: document.getElementById('set-col-light-or2').value,
       bg: document.getElementById('set-col-light-bg').value,
       bg2: document.getElementById('set-col-light-bg2').value,
-      bg3: document.getElementById('set-col-light-bg3').value,
+      bg3: lightBg3 ? lightBg3.value : '#D8E3F0',
       card: document.getElementById('set-col-light-card').value,
       txt: document.getElementById('set-col-light-txt').value
     }
