@@ -128,8 +128,8 @@ body{font-family:var(--font-ar);background:var(--bg);color:var(--txt);overflow-x
 .particle{position:absolute;border-radius:50%;animation:partF linear infinite;opacity:0;background:var(--or);}
 @keyframes partF{0%{transform:translateY(100vh) translateX(0);opacity:0;}10%{opacity:.5;}90%{opacity:.2;}100%{transform:translateY(-10vh) translateX(var(--dx));opacity:0;}}
 
-.hero-wrap{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:110px 44px 80px;display:flex;justify-content:flex-end;align-items:center;}
-[data-lang="en"] .hero-wrap{justify-content:flex-start;}
+.hero-wrap{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:110px 44px 80px;display:flex;justify-content:flex-start;align-items:center;}
+[data-lang="en"] .hero-wrap{justify-content:flex-end;}
 .hero-content{display:flex;flex-direction:column;align-items:flex-start;text-align:right;max-width:680px;width:100%;}
 [data-lang="en"] .hero-content{align-items:flex-start;text-align:left;}
 /* Text side */
