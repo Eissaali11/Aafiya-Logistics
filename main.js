@@ -1155,12 +1155,6 @@ function playEntranceAnimation() {
     y: 0,
     scale: 1,
   }, "-=0.5")
-  .to(".hero-card", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: "back.out(1.2)"
-  }, "-=0.5")
   .add(() => {
     initRv();
   });
