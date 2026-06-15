@@ -83,7 +83,7 @@ const DB={
       projects: "",
       news: "",
       gallery: "",
-      team: "",
+      team: "img/Gemini_Generated_Image_mrhpdsmrhpdsmrhp.png",
       jobs: "",
       testimonials: "",
       partners: "",
@@ -213,6 +213,11 @@ if (DB.settings) {
   if (DB.contactInfo && DB.contactInfo.email.includes("raya1.site")) {
     DB.contactInfo.email = "info@aafiya.site";
     DB.contactInfo.website = "aafiya.site";
+    migrated = true;
+  }
+  
+  if (DB.settings && DB.settings.backgrounds && !DB.settings.backgrounds.team) {
+    DB.settings.backgrounds.team = "img/Gemini_Generated_Image_mrhpdsmrhpdsmrhp.png";
     migrated = true;
   }
   
