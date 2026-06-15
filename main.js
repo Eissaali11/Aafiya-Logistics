@@ -80,7 +80,7 @@ const DB={
       roles: "",
       whyUs: "",
       howWeWork: "",
-      projects: "",
+      projects: "img/Gemini_Generated_Image_jcg4pojcg4pojcg4.png",
       news: "",
       gallery: "",
       team: "img/Gemini_Generated_Image_mrhpdsmrhpdsmrhp.png",
@@ -218,6 +218,10 @@ if (DB.settings) {
   
   if (DB.settings && DB.settings.backgrounds && !DB.settings.backgrounds.team) {
     DB.settings.backgrounds.team = "img/Gemini_Generated_Image_mrhpdsmrhpdsmrhp.png";
+    migrated = true;
+  }
+  if (DB.settings && DB.settings.backgrounds && !DB.settings.backgrounds.projects) {
+    DB.settings.backgrounds.projects = "img/Gemini_Generated_Image_jcg4pojcg4pojcg4.png";
     migrated = true;
   }
   
