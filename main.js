@@ -47,17 +47,17 @@ const DB={
     {id:6,name:{ar:"التقارير والتحليلات",en:"Reports & Analytics"},desc:{ar:"تقارير دورية وتحسين مستمر للعمليات.",en:"Periodic reports and continuous process improvement."},icon:"<i class='fa-solid fa-chart-column'></i>"}
   ],
   testimonials:[
-    {id:1,name:{ar:"محمد العتيبي",en:"Mohammed Al-Otaibi"},position:{ar:"مدير العمليات - شركة تصنيع",en:"Operations Director - Manufacturing Co."},text:{ar:"ساهمت رعاية في تحسين سلسلة الإمداد لدينا بشكل كبير، مما أدى إلى توفير التكاليف وزيادة الإنتاجية.",en:"Riaya significantly improved our supply chain, resulting in cost savings and increased productivity."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
+    {id:1,name:{ar:"محمد العتيبي",en:"Mohammed Al-Otaibi"},position:{ar:"مدير العمليات - شركة تصنيع",en:"Operations Director - Manufacturing Co."},text:{ar:"ساهمت عافية في تحسين سلسلة الإمداد لدينا بشكل كبير، مما أدى إلى توفير التكاليف وزيادة الإنتاجية.",en:"Aafiya significantly improved our supply chain, resulting in cost savings and increased productivity."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
     {id:2,name:{ar:"فهد الشمري",en:"Fahad Al-Shammari"},position:{ar:"الرئيس التنفيذي - شركة توزيع",en:"CEO - Distribution Company"},text:{ar:"فريق احترافي وحلول فعالة في الوقت المناسب. نقدر التزامهم بالجودة والسلامة في كل عملية.",en:"Professional team with timely solutions. We appreciate their commitment to quality and safety in every operation."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""}
   ],
-  contactInfo:{phone:"+966558619232",whatsapp:"+966558619232",email:"info@raya1.site",website:"raya1.site",locationAr:"الرياض، المملكة العربية السعودية",locationEn:"Riyadh, Saudi Arabia"},
+  contactInfo:{phone:"+966558619232",whatsapp:"+966558619232",email:"info@aafiya.site",website:"aafiya.site",locationAr:"الرياض، المملكة العربية السعودية",locationEn:"Riyadh, Saudi Arabia"},
   socialMedia:[
     {id:1,platform:"twitter",url:"#",icon:"𝕏",label:"Twitter / X"},
     {id:2,platform:"linkedin",url:"#",icon:"in",label:"LinkedIn"},
     {id:3,platform:"instagram",url:"#",icon:"<i class='fa-brands fa-instagram'></i>",label:"Instagram"}
   ],
   settings: {
-    siteName: { ar: "رعاية للقوى العاملة", en: "Riaya Workforce" },
+    siteName: { ar: "عافية لوجستيك", en: "Aafiya Logistics" },
     logoUrl: "img/logo.png",
     colors: {
       dark: {
@@ -78,15 +78,15 @@ const DB={
       vals: ""
     },
     hero: {
-      badge: { ar: "شريكك الموثوق في القوى العاملة", en: "Your Trusted Workforce Partner" },
-      titleLine1: { ar: "حلول <span class='hl'>رعاية</span>", en: "Smart <span class='hl'>Riaya</span>" },
+      badge: { ar: "شريكك الموثوق في الخدمات اللوجستية", en: "Your Trusted Logistics Partner" },
+      titleLine1: { ar: "حلول <span class='hl'>عافية</span>", en: "Smart <span class='hl'>Aafiya</span>" },
       titleLine2: { ar: "اللوجستية الذكية", en: "Logistics Solutions" },
       titleLine3: { ar: "لنمو أعمالك", en: "Powering Your Growth" },
-      sub: { ar: "شركة سعودية متخصصة في إدارة القوى العاملة والخدمات اللوجستية، نقدم حلولاً ذكية وقابلة للتوسع تعزز كفاءتك التشغيلية وتدعم رؤية 2030.", en: "A Saudi-based company specialized in workforce management and logistics, delivering smart scalable solutions that optimize your operations and support Vision 2030." }
+      sub: { ar: "شركة سعودية متخصصة في الخدمات اللوجستية وإدارة القوى العاملة، نقدم حلولاً ذكية وقابلة للتوسع تعزز كفاءتك التشغيلية وتدعم رؤية 2030.", en: "A Saudi-based company specialized in logistics and workforce management, delivering smart scalable solutions that optimize your operations and support Vision 2030." }
     },
     about: {
-      heroTitle: { ar: "شركة رعاية: شريكك الاستراتيجي للنمو والنجاح في المملكة العربية السعودية", en: "Riaya: Your Strategic Partner for Growth & Success in Saudi Arabia" },
-      heroSub: { ar: "نحن في رعاية نمثل الشريك الاستراتيجي الأمثل للشركات في السوق السعودي، نقدم حلولاً لوجستية وتشغيلية متكاملة تدعم التوسع والنمو المستدام في بيئة الأعمال المتطورة.", en: "At Riaya, we represent the ideal strategic partner for businesses in the Saudi market, delivering integrated logistics and operational solutions that support expansion and sustainable growth." },
+      heroTitle: { ar: "شركة عافية: شريكك الاستراتيجي للنمو والنجاح في المملكة العربية السعودية", en: "Aafiya: Your Strategic Partner for Growth & Success in Saudi Arabia" },
+      heroSub: { ar: "نحن في عافية نمثل الشريك الاستراتيجي الأمثل للشركات في السوق السعودي، نقدم حلولاً لوجستية وتشغيلية متكاملة تدعم التوسع والنمو المستدام في بيئة الأعمال المتطورة.", en: "At Aafiya, we represent the ideal strategic partner for businesses in the Saudi market, delivering integrated logistics and operational solutions that support expansion and sustainable growth." },
       visionTitle: { ar: "رؤيتنا", en: "Our Vision" },
       visionText: { ar: "أن نكون الرواد في تقديم حلول لوجستية وتشغيلية متكاملة ومستدامة، تعزز تنافسية الشركات وتساهم في بناء مستقبل مشرق للمملكة وفق رؤية 2030.", en: "To be pioneers in delivering integrated, sustainable logistics and operational solutions that enhance business competitiveness and contribute to building the Kingdom's bright future aligned with Vision 2030." },
       missionTitle: { ar: "رسالتنا", en: "Our Mission" },
@@ -129,6 +129,67 @@ function loadDB(){
   } catch(e){}
 }
 loadDB();
+
+// Migration: Granular, field-by-field check to clean old "رعاية" / "Riaya" references from localStorage settings
+if (DB.settings) {
+  let migrated = false;
+  
+  if (DB.settings.siteName && (DB.settings.siteName.ar === "رعاية للقوى العاملة" || DB.settings.siteName.ar.includes("رعاية"))) {
+    DB.settings.siteName = { ar: "عافية لوجستيك", en: "Aafiya Logistics" };
+    migrated = true;
+  }
+  
+  if (DB.settings.hero) {
+    if (DB.settings.hero.badge && (DB.settings.hero.badge.ar.includes("القوى العاملة") || DB.settings.hero.badge.ar.includes("رعاية"))) {
+      DB.settings.hero.badge = { ar: "شريكك الموثوق في الخدمات اللوجستية", en: "Your Trusted Logistics Partner" };
+      migrated = true;
+    }
+    if (DB.settings.hero.titleLine1 && DB.settings.hero.titleLine1.ar.includes("رعاية")) {
+      DB.settings.hero.titleLine1 = { ar: "حلول <span class='hl'>عافية</span>", en: "Smart <span class='hl'>Aafiya</span>" };
+      migrated = true;
+    }
+    if (DB.settings.hero.sub && (DB.settings.hero.sub.ar.includes("إدارة القوى العاملة والخدمات اللوجستية") || DB.settings.hero.sub.ar.includes("رعاية"))) {
+      DB.settings.hero.sub = {
+        ar: "شركة سعودية متخصصة في الخدمات اللوجستية وإدارة القوى العاملة، نقدم حلولاً ذكية وقابلة للتوسع تعزز كفاءتك التشغيلية وتدعم رؤية 2030.",
+        en: "A Saudi-based company specialized in logistics and workforce management, delivering smart scalable solutions that optimize your operations and support Vision 2030."
+      };
+      migrated = true;
+    }
+  }
+  
+  if (DB.settings.about) {
+    if (DB.settings.about.heroTitle && DB.settings.about.heroTitle.ar.includes("رعاية")) {
+      DB.settings.about.heroTitle = {
+        ar: "شركة عافية: شريكك الاستراتيجي للنمو والنجاح في المملكة العربية السعودية",
+        en: "Aafiya: Your Strategic Partner for Growth & Success in Saudi Arabia"
+      };
+      migrated = true;
+    }
+    if (DB.settings.about.heroSub && DB.settings.about.heroSub.ar.includes("رعاية")) {
+      DB.settings.about.heroSub = {
+        ar: "نحن في عافية نمثل الشريك الاستراتيجي الأمثل للشركات في السوق السعودي، نقدم حلولاً لوجستية وتشغيلية متكاملة تدعم التوسع والنمو المستدام في بيئة الأعمال المتطورة.",
+        en: "At Aafiya, we represent the ideal strategic partner for businesses in the Saudi market, delivering integrated logistics and operational solutions that support expansion and sustainable growth."
+      };
+      migrated = true;
+    }
+  }
+  
+  if (DB.testimonials && DB.testimonials[0] && DB.testimonials[0].text.ar.includes("رعاية")) {
+    DB.testimonials[0].text.ar = "ساهمت عافية في تحسين سلسلة الإمداد لدينا بشكل كبير، مما أدى إلى توفير التكاليف وزيادة الإنتاجية.";
+    DB.testimonials[0].text.en = "Aafiya significantly improved our supply chain, resulting in cost savings and increased productivity.";
+    migrated = true;
+  }
+  
+  if (DB.contactInfo && DB.contactInfo.email.includes("raya1.site")) {
+    DB.contactInfo.email = "info@aafiya.site";
+    DB.contactInfo.website = "aafiya.site";
+    migrated = true;
+  }
+  
+  if (migrated) {
+    saveDB();
+  }
+}
 
 // ═══ LANG / THEME ═══
 let lang = localStorage.getItem('riaya-lang') || 'ar';
