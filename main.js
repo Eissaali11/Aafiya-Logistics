@@ -92,6 +92,21 @@ const DB={
       missionTitle: { ar: "رسالتنا", en: "Our Mission" },
       missionText: { ar: "تمكين الشركات السعودية من تحقيق أعلى مستويات الأداء التشغيلي من خلال تقديم حلول لوجستية وإدارة قوى عاملة بمعايير عالمية، تعتمد على التكنولوجيا المتقدمة والكوادر البشرية المؤهلة.", en: "Empowering Saudi businesses to achieve peak operational performance through world-class logistics and workforce management solutions, powered by advanced technology and qualified human resources." },
       img: ""
+    },
+    visibleSections: {
+      about: true,
+      services: true,
+      roles: true,
+      whyUs: true,
+      howWeWork: true,
+      projects: true,
+      news: true,
+      gallery: true,
+      team: true,
+      jobs: true,
+      testimonials: true,
+      partners: true,
+      contact: true
     }
   },
   nid:20
@@ -124,6 +139,9 @@ function loadDB(){
       }
       if(d.settings.about) {
         DB.settings.about = { ...DB.settings.about, ...d.settings.about };
+      }
+      if(d.settings.visibleSections) {
+        DB.settings.visibleSections = { ...DB.settings.visibleSections, ...d.settings.visibleSections };
       }
     }
   } catch(e){}
@@ -884,6 +902,41 @@ function applyStaticTexts() {
   if (svcBg && bg.services) {
     svcBg.style.backgroundImage = `url('${bg.services}')`;
   }
+  applySectionVisibility();
+}
+
+function applySectionVisibility() {
+  const vis = DB.settings?.visibleSections || {};
+  const mapping = {
+    about: '#about-s',
+    services: '#svc-s',
+    roles: '#roles-s',
+    whyUs: '#why-us-s',
+    howWeWork: '#how-we-work-s',
+    projects: '#prj-s',
+    news: '#news-s',
+    gallery: '#gallery-s',
+    team: '#team-s',
+    jobs: '#jobs-s',
+    testimonials: '#test-s',
+    partners: '#ptn-s',
+    contact: '#contact-s'
+  };
+  
+  for (const [key, selector] of Object.entries(mapping)) {
+    const isVisible = vis[key] !== false;
+    const sectionEl = document.querySelector(selector);
+    if (sectionEl) {
+      sectionEl.style.display = isVisible ? '' : 'none';
+    }
+    document.querySelectorAll(`[data-sec="${key}"]`).forEach(navEl => {
+      navEl.style.display = isVisible ? '' : 'none';
+    });
+  }
+  
+  if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.refresh();
+  }
 }
 
 // ═══ DASHBOARD SETTINGS CONTROLLERS ═══
@@ -1011,6 +1064,15 @@ function renderSettingsPanel() {
       }
     }
   });
+  
+  const vis = s.visibleSections || {};
+  const sectionsList = ['about', 'services', 'roles', 'whyUs', 'howWeWork', 'projects', 'news', 'gallery', 'team', 'jobs', 'testimonials', 'partners', 'contact'];
+  sectionsList.forEach(key => {
+    const el = document.getElementById('set-sec-' + key);
+    if (el) {
+      el.checked = vis[key] !== false;
+    }
+  });
 }
 
 function saveSettings() {
@@ -1102,6 +1164,22 @@ function saveSettings() {
     services: document.getElementById('set-bg-services-val').value,
     vm: document.getElementById('set-bg-vm-val').value,
     vals: document.getElementById('set-bg-vals-val').value
+  };
+  
+  DB.settings.visibleSections = {
+    about: document.getElementById('set-sec-about').checked,
+    services: document.getElementById('set-sec-services').checked,
+    roles: document.getElementById('set-sec-roles').checked,
+    whyUs: document.getElementById('set-sec-whyUs').checked,
+    howWeWork: document.getElementById('set-sec-howWeWork').checked,
+    projects: document.getElementById('set-sec-projects').checked,
+    news: document.getElementById('set-sec-news').checked,
+    gallery: document.getElementById('set-sec-gallery').checked,
+    team: document.getElementById('set-sec-team').checked,
+    jobs: document.getElementById('set-sec-jobs').checked,
+    testimonials: document.getElementById('set-sec-testimonials').checked,
+    partners: document.getElementById('set-sec-partners').checked,
+    contact: document.getElementById('set-sec-contact').checked
   };
   
   saveDB();

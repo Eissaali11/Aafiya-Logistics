@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 
 <script type="application/ld+json">
 {
@@ -79,22 +79,22 @@
     <img id="dyn-navbar-logo" src="img/logo.png" alt="Aafiya Logistics" style="height:46px;">
   </div>
   <div class="nav-links">
-    <span class="nl" onclick="goSec('#about-s')" data-ar>من نحن</span>
-    <span class="nl" onclick="goSec('#about-s')" data-en>About</span>
-    <span class="nl" onclick="goSec('#svc-s')" data-ar>خدماتنا</span>
-    <span class="nl" onclick="goSec('#svc-s')" data-en>Services</span>
-    <span class="nl" onclick="goSec('#roles-s')" data-ar>كوادرنا</span>
-    <span class="nl" onclick="goSec('#roles-s')" data-en>Workforce</span>
-    <span class="nl" onclick="goSec('#prj-s')" data-ar>مشاريعنا</span>
-    <span class="nl" onclick="goSec('#prj-s')" data-en>Projects</span>
-    <span class="nl" onclick="goSec('#news-s')" data-ar>أخبارنا</span>
-    <span class="nl" onclick="goSec('#news-s')" data-en>News</span>
-    <span class="nl" onclick="goSec('#team-s')" data-ar>فريقنا</span>
-    <span class="nl" onclick="goSec('#team-s')" data-en>Team</span>
-    <span class="nl" onclick="goSec('#jobs-s')" data-ar>وظائف</span>
-    <span class="nl" onclick="goSec('#jobs-s')" data-en>Jobs</span>
-    <span class="nl" onclick="goSec('#gallery-s')" data-ar>معرض</span>
-    <span class="nl" onclick="goSec('#gallery-s')" data-en>Gallery</span>
+    <span class="nl" onclick="goSec('#about-s')" data-sec="about" data-ar>من نحن</span>
+    <span class="nl" onclick="goSec('#about-s')" data-sec="about" data-en>About</span>
+    <span class="nl" onclick="goSec('#svc-s')" data-sec="services" data-ar>خدماتنا</span>
+    <span class="nl" onclick="goSec('#svc-s')" data-sec="services" data-en>Services</span>
+    <span class="nl" onclick="goSec('#roles-s')" data-sec="roles" data-ar>كوادرنا</span>
+    <span class="nl" onclick="goSec('#roles-s')" data-sec="roles" data-en>Workforce</span>
+    <span class="nl" onclick="goSec('#prj-s')" data-sec="projects" data-ar>مشاريعنا</span>
+    <span class="nl" onclick="goSec('#prj-s')" data-sec="projects" data-en>Projects</span>
+    <span class="nl" onclick="goSec('#news-s')" data-sec="news" data-ar>أخبارنا</span>
+    <span class="nl" onclick="goSec('#news-s')" data-sec="news" data-en>News</span>
+    <span class="nl" onclick="goSec('#team-s')" data-sec="team" data-ar>فريقنا</span>
+    <span class="nl" onclick="goSec('#team-s')" data-sec="team" data-en>Team</span>
+    <span class="nl" onclick="goSec('#jobs-s')" data-sec="jobs" data-ar>وظائف</span>
+    <span class="nl" onclick="goSec('#jobs-s')" data-sec="jobs" data-en>Jobs</span>
+    <span class="nl" onclick="goSec('#gallery-s')" data-sec="gallery" data-ar>معرض</span>
+    <span class="nl" onclick="goSec('#gallery-s')" data-sec="gallery" data-en>Gallery</span>
   </div>
   <div class="nav-actions">
     <button class="btn-theme" onclick="toggleTheme()" id="theme-btn" title="تغيير الوضع"><i class="fa-solid fa-moon"></i></button>
@@ -106,16 +106,22 @@
 </div>
 <!-- Mobile nav -->
 <div class="mobile-nav" id="mob-nav">
-  <span class="nl" onclick="goSec('#about-s');toggleMenu()" data-ar>من نحن</span>
-  <span class="nl" onclick="goSec('#about-s');toggleMenu()" data-en>About</span>
-  <span class="nl" onclick="goSec('#svc-s');toggleMenu()" data-ar>خدماتنا</span>
-  <span class="nl" onclick="goSec('#svc-s');toggleMenu()" data-en>Services</span>
-  <span class="nl" onclick="goSec('#roles-s');toggleMenu()" data-ar>كوادرنا</span>
-  <span class="nl" onclick="goSec('#roles-s');toggleMenu()" data-en>Workforce</span>
-  <span class="nl" onclick="goSec('#prj-s');toggleMenu()" data-ar>مشاريعنا</span>
-  <span class="nl" onclick="goSec('#prj-s');toggleMenu()" data-en>Projects</span>
-  <span class="nl" onclick="goSec('#jobs-s');toggleMenu()" data-ar>وظائف</span>
-  <span class="nl" onclick="goSec('#jobs-s');toggleMenu()" data-en>Jobs</span>
+  <span class="nl" onclick="goSec('#about-s');toggleMenu()" data-sec="about" data-ar>من نحن</span>
+  <span class="nl" onclick="goSec('#about-s');toggleMenu()" data-sec="about" data-en>About</span>
+  <span class="nl" onclick="goSec('#svc-s');toggleMenu()" data-sec="services" data-ar>خدماتنا</span>
+  <span class="nl" onclick="goSec('#svc-s');toggleMenu()" data-sec="services" data-en>Services</span>
+  <span class="nl" onclick="goSec('#roles-s');toggleMenu()" data-sec="roles" data-ar>كوادرنا</span>
+  <span class="nl" onclick="goSec('#roles-s');toggleMenu()" data-sec="roles" data-en>Workforce</span>
+  <span class="nl" onclick="goSec('#prj-s');toggleMenu()" data-sec="projects" data-ar>مشاريعنا</span>
+  <span class="nl" onclick="goSec('#prj-s');toggleMenu()" data-sec="projects" data-en>Projects</span>
+  <span class="nl" onclick="goSec('#news-s');toggleMenu()" data-sec="news" data-ar>أخبارنا</span>
+  <span class="nl" onclick="goSec('#news-s');toggleMenu()" data-sec="news" data-en>News</span>
+  <span class="nl" onclick="goSec('#team-s');toggleMenu()" data-sec="team" data-ar>فريقنا</span>
+  <span class="nl" onclick="goSec('#team-s');toggleMenu()" data-sec="team" data-en>Team</span>
+  <span class="nl" onclick="goSec('#jobs-s');toggleMenu()" data-sec="jobs" data-ar>وظائف</span>
+  <span class="nl" onclick="goSec('#jobs-s');toggleMenu()" data-sec="jobs" data-en>Jobs</span>
+  <span class="nl" onclick="goSec('#gallery-s');toggleMenu()" data-sec="gallery" data-ar>معرض</span>
+  <span class="nl" onclick="goSec('#gallery-s');toggleMenu()" data-sec="gallery" data-en>Gallery</span>
 </div>
 
 <!-- ===================================================
@@ -393,7 +399,7 @@
 </section>
 
 <!-- WHY US -->
-<section style="background:var(--bg2);padding:1px 0;">
+<section id="why-us-s" style="background:var(--bg2);padding:1px 0;">
 <div class="sec">
   <div class="sec-hd rv">
     <div class="sec-badge">✦ <span data-ar>لماذا عافية</span><span data-en>Why Aafiya</span></div>
@@ -410,7 +416,7 @@
 </section>
 
 <!-- HOW WE WORK -->
-<section style="padding:1px 0;">
+<section id="how-we-work-s" style="padding:1px 0;">
 <div class="sec">
   <div class="sec-hd rv">
     <div class="sec-badge">✦ <span data-ar>كيف نعمل</span><span data-en>How We Work</span></div>
@@ -488,7 +494,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section style="background:var(--bg2);padding:1px 0;">
+<section id="test-s" style="background:var(--bg2);padding:1px 0;">
 <div class="sec">
   <div class="sec-hd rv">
     <div class="sec-badge">✦ <span data-ar>آراء عملاؤنا</span><span data-en>Testimonials</span></div>

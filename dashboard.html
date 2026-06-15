@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
 <script>
@@ -115,6 +115,7 @@
         <button class="tab settings-tab-btn" onclick="switchSettingsTab('hero', this)"><span data-ar>قسم البنر الترحيبي</span><span data-en>Hero Section</span></button>
         <button class="tab settings-tab-btn" onclick="switchSettingsTab('about', this)"><span data-ar>من نحن ورؤيتنا</span><span data-en>About & Vision</span></button>
         <button class="tab settings-tab-btn" onclick="switchSettingsTab('backgrounds', this)"><span data-ar>الخلفيات</span><span data-en>Backgrounds</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('sections', this)"><span data-ar>التحكم بالأقسام</span><span data-en>Toggle Sections</span></button>
       </div>
 
       <div class="settings-content-wrapper" style="background: var(--card); border: 1px solid var(--bdr); border-radius: 16px; padding: 24px;">
@@ -259,6 +260,65 @@
                 <div class="up-txt" id="vals-bg-up-tx"><span data-ar>اسحب أو انقر لرفع خلفية القيم الأساسية</span><span data-en>Drag or click to upload values background</span></div>
               </div>
               <input type="hidden" id="set-bg-vals-val">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Sections Visibility Settings -->
+        <div class="settings-tab-panel" id="set-tab-sections" style="display:none;">
+          <h3 style="margin-bottom:20px; font-size:16px; color:var(--txt); font-weight:700;"><span data-ar>التحكم في ظهور أقسام الصفحة الرئيسية</span><span data-en>Control Homepage Sections Visibility</span></h3>
+          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:14px;">
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-about" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-about" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>من نحن ورؤيتنا</span><span data-en>About Us & Vision</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-services" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-services" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>خدماتنا</span><span data-en>Our Services</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-roles" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-roles" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>كوادرنا المتخصصة</span><span data-en>Our Workforce</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-whyUs" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-whyUs" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>لماذا عافية؟</span><span data-en>Why Us?</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-howWeWork" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-howWeWork" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>كيف نعمل؟</span><span data-en>How We Work?</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-projects" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-projects" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>مشاريعنا</span><span data-en>Our Projects</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-news" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-news" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>أخبارنا</span><span data-en>News</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-gallery" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-gallery" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>معرض الصور</span><span data-en>Gallery</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-team" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-team" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>فريق العمل</span><span data-en>Our Team</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-jobs" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-jobs" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>الوظائف المتاحة</span><span data-en>Careers / Jobs</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-testimonials" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-testimonials" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>آراء العملاء</span><span data-en>Testimonials</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-partners" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-partners" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>شركاء النجاح</span><span data-en>Partners</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-contact" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-contact" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>تواصل معنا</span><span data-en>Contact Us</span></label>
             </div>
           </div>
         </div>
