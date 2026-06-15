@@ -214,53 +214,197 @@
 
         <!-- Tab 5: Background Images Settings -->
         <div class="settings-tab-panel" id="set-tab-backgrounds" style="display:none;">
-          <div class="fg">
+          <div class="fg" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
             <!-- Hero Background -->
-            <div class="f-grp full">
-              <label><span data-ar>خلفية البنر الترحيبي (Hero Background)</span><span data-en>Hero Banner Background</span></label>
+            <div class="f-grp">
+              <label><span data-ar>خلفية البنر الترحيبي (Hero)</span><span data-en>Hero Banner Background</span></label>
               <div class="up-area" id="hero-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-hero-val','hero-bg-prev','hero-bg-up')">
                 <input type="file" accept="image/*" onchange="upImg(this,'set-bg-hero-val','hero-bg-prev','hero-bg-up')">
-                <img id="hero-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <img id="hero-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
                 <span class="up-ic" id="hero-bg-up-ic">🖼️</span>
-                <div class="up-txt" id="hero-bg-up-tx"><span data-ar>اسحب أو انقر لرفع صورة خلفية البنر</span><span data-en>Drag or click to upload hero background</span></div>
+                <div class="up-txt" id="hero-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
               </div>
               <input type="hidden" id="set-bg-hero-val">
             </div>
 
-            <!-- Services Background -->
-            <div class="f-grp full">
-              <label><span data-ar>خلفية قسم الخدمات (Services Background)</span><span data-en>Services Section Background</span></label>
-              <div class="up-area" id="services-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-services-val','services-bg-prev','services-bg-up')">
-                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-services-val','services-bg-prev','services-bg-up')">
-                <img id="services-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
-                <span class="up-ic" id="services-bg-up-ic">🖼️</span>
-                <div class="up-txt" id="services-bg-up-tx"><span data-ar>اسحب أو انقر لرفع صورة خلفية الخدمات</span><span data-en>Drag or click to upload services background</span></div>
+            <!-- About Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم من نحن (About)</span><span data-en>About Us Background</span></label>
+              <div class="up-area" id="about-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-about-val','about-bg-prev','about-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-about-val','about-bg-prev','about-bg-up')">
+                <img id="about-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="about-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="about-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
               </div>
-              <input type="hidden" id="set-bg-services-val">
+              <input type="hidden" id="set-bg-about-val">
             </div>
 
             <!-- Vision / Mission Background -->
-            <div class="f-grp full">
-              <label><span data-ar>خلفية قسم الرؤية والرسالة (Vision & Mission Background)</span><span data-en>Vision & Mission Background</span></label>
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم الرؤية والرسالة (Vision)</span><span data-en>Vision & Mission Background</span></label>
               <div class="up-area" id="vm-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-vm-val','vm-bg-prev','vm-bg-up')">
                 <input type="file" accept="image/*" onchange="upImg(this,'set-bg-vm-val','vm-bg-prev','vm-bg-up')">
-                <img id="vm-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <img id="vm-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
                 <span class="up-ic" id="vm-bg-up-ic">🖼️</span>
-                <div class="up-txt" id="vm-bg-up-tx"><span data-ar>اسحب أو انقر لرفع خلفية الرؤية والرسالة</span><span data-en>Drag or click to upload vision background</span></div>
+                <div class="up-txt" id="vm-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
               </div>
               <input type="hidden" id="set-bg-vm-val">
             </div>
 
             <!-- Values Background -->
-            <div class="f-grp full">
-              <label><span data-ar>خلفية قسم القيم الأساسية (Values Background)</span><span data-en>Values Background</span></label>
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم القيم الأساسية (Values)</span><span data-en>Values Background</span></label>
               <div class="up-area" id="vals-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-vals-val','vals-bg-prev','vals-bg-up')">
                 <input type="file" accept="image/*" onchange="upImg(this,'set-bg-vals-val','vals-bg-prev','vals-bg-up')">
-                <img id="vals-bg-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <img id="vals-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
                 <span class="up-ic" id="vals-bg-up-ic">🖼️</span>
-                <div class="up-txt" id="vals-bg-up-tx"><span data-ar>اسحب أو انقر لرفع خلفية القيم الأساسية</span><span data-en>Drag or click to upload values background</span></div>
+                <div class="up-txt" id="vals-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
               </div>
               <input type="hidden" id="set-bg-vals-val">
+            </div>
+
+            <!-- Services Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم الخدمات (Services)</span><span data-en>Services Background</span></label>
+              <div class="up-area" id="services-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-services-val','services-bg-prev','services-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-services-val','services-bg-prev','services-bg-up')">
+                <img id="services-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="services-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="services-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-services-val">
+            </div>
+
+            <!-- Roles Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية الكوادر البشرية (Workforce)</span><span data-en>Workforce Roles Background</span></label>
+              <div class="up-area" id="roles-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-roles-val','roles-bg-prev','roles-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-roles-val','roles-bg-prev','roles-bg-up')">
+                <img id="roles-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="roles-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="roles-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-roles-val">
+            </div>
+
+            <!-- Why Us Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم لماذا نحن؟ (Why Us)</span><span data-en>Why Choose Us Background</span></label>
+              <div class="up-area" id="whyUs-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-whyUs-val','whyUs-bg-prev','whyUs-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-whyUs-val','whyUs-bg-prev','whyUs-bg-up')">
+                <img id="whyUs-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="whyUs-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="whyUs-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-whyUs-val">
+            </div>
+
+            <!-- How We Work Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم كيف نعمل؟ (How We Work)</span><span data-en>How We Work Background</span></label>
+              <div class="up-area" id="howWeWork-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-howWeWork-val','howWeWork-bg-prev','howWeWork-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-howWeWork-val','howWeWork-bg-prev','howWeWork-bg-up')">
+                <img id="howWeWork-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="howWeWork-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="howWeWork-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-howWeWork-val">
+            </div>
+
+            <!-- Projects Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم مشاريعنا (Projects)</span><span data-en>Our Projects Background</span></label>
+              <div class="up-area" id="projects-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-projects-val','projects-bg-prev','projects-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-projects-val','projects-bg-prev','projects-bg-up')">
+                <img id="projects-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="projects-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="projects-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-projects-val">
+            </div>
+
+            <!-- News Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم أخبارنا (News)</span><span data-en>News Section Background</span></label>
+              <div class="up-area" id="news-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-news-val','news-bg-prev','news-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-news-val','news-bg-prev','news-bg-up')">
+                <img id="news-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="news-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="news-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-news-val">
+            </div>
+
+            <!-- Gallery Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية معرض الصور (Gallery)</span><span data-en>Gallery Section Background</span></label>
+              <div class="up-area" id="gallery-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-gallery-val','gallery-bg-prev','gallery-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-gallery-val','gallery-bg-prev','gallery-bg-up')">
+                <img id="gallery-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="gallery-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="gallery-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-gallery-val">
+            </div>
+
+            <!-- Team Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية فريق العمل (Team)</span><span data-en>Our Team Background</span></label>
+              <div class="up-area" id="team-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-team-val','team-bg-prev','team-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-team-val','team-bg-prev','team-bg-up')">
+                <img id="team-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="team-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="team-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-team-val">
+            </div>
+
+            <!-- Jobs Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية الوظائف المتاحة (Careers)</span><span data-en>Careers Background</span></label>
+              <div class="up-area" id="jobs-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-jobs-val','jobs-bg-prev','jobs-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-jobs-val','jobs-bg-prev','jobs-bg-up')">
+                <img id="jobs-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="jobs-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="jobs-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-jobs-val">
+            </div>
+
+            <!-- Testimonials Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية آراء العملاء (Testimonials)</span><span data-en>Testimonials Background</span></label>
+              <div class="up-area" id="testimonials-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-testimonials-val','testimonials-bg-prev','testimonials-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-testimonials-val','testimonials-bg-prev','testimonials-bg-up')">
+                <img id="testimonials-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="testimonials-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="testimonials-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-testimonials-val">
+            </div>
+
+            <!-- Partners Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية شركاء النجاح (Partners)</span><span data-en>Partners Background</span></label>
+              <div class="up-area" id="partners-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-partners-val','partners-bg-prev','partners-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-partners-val','partners-bg-prev','partners-bg-up')">
+                <img id="partners-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="partners-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="partners-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-partners-val">
+            </div>
+
+            <!-- Contact Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم تواصل معنا (Contact)</span><span data-en>Contact Us Background</span></label>
+              <div class="up-area" id="contact-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-contact-val','contact-bg-prev','contact-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-contact-val','contact-bg-prev','contact-bg-up')">
+                <img id="contact-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="contact-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="contact-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-contact-val">
             </div>
           </div>
         </div>

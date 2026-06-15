@@ -73,9 +73,21 @@ const DB={
     },
     backgrounds: {
       hero: "",
-      services: "",
+      about: "",
       vm: "",
-      vals: ""
+      vals: "",
+      services: "",
+      roles: "",
+      whyUs: "",
+      howWeWork: "",
+      projects: "",
+      news: "",
+      gallery: "",
+      team: "",
+      jobs: "",
+      testimonials: "",
+      partners: "",
+      contact: ""
     },
     hero: {
       badge: { ar: "شريكك الموثوق في الخدمات اللوجستية", en: "Your Trusted Logistics Partner" },
@@ -786,14 +798,29 @@ function applyCustomTheme() {
   }
   
   const bg = s.backgrounds || {};
-  if (bg.hero) {
-    css += ` #hero-s .hero-bg { background-image: url('${bg.hero}') !important; background-size: cover !important; background-position: center !important; }\n`;
-  }
-  if (bg.vm) {
-    css += ` .abt-vm-sec { background-image: url('${bg.vm}') !important; }\n`;
-  }
-  if (bg.vals) {
-    css += ` .abt-vals-sec { background-image: url('${bg.vals}') !important; }\n`;
+  const mapping = {
+    hero: '#hero-s .hero-bg, #hero-s',
+    about: '#about-s',
+    vm: '.abt-vm-sec',
+    vals: '.abt-vals-sec',
+    services: '#svc-s',
+    roles: '#roles-s',
+    whyUs: '#why-us-s',
+    howWeWork: '#how-we-work-s',
+    projects: '#prj-s',
+    news: '#news-s',
+    gallery: '#gallery-s',
+    team: '#team-s',
+    jobs: '#jobs-s',
+    testimonials: '#test-s',
+    partners: '#ptn-s',
+    contact: '#contact-s'
+  };
+  
+  for (const [key, selector] of Object.entries(mapping)) {
+    if (bg[key]) {
+      css += ` ${selector} { background-image: url('${bg[key]}') !important; background-size: cover !important; background-position: center !important; }\n`;
+    }
   }
   
   styleEl.textContent = css;
@@ -1040,9 +1067,21 @@ function renderSettingsPanel() {
   const bg = s.backgrounds || {};
   const bgs = [
     { id: 'hero', val: bg.hero },
-    { id: 'services', val: bg.services },
+    { id: 'about', val: bg.about },
     { id: 'vm', val: bg.vm },
-    { id: 'vals', val: bg.vals }
+    { id: 'vals', val: bg.vals },
+    { id: 'services', val: bg.services },
+    { id: 'roles', val: bg.roles },
+    { id: 'whyUs', val: bg.whyUs },
+    { id: 'howWeWork', val: bg.howWeWork },
+    { id: 'projects', val: bg.projects },
+    { id: 'news', val: bg.news },
+    { id: 'gallery', val: bg.gallery },
+    { id: 'team', val: bg.team },
+    { id: 'jobs', val: bg.jobs },
+    { id: 'testimonials', val: bg.testimonials },
+    { id: 'partners', val: bg.partners },
+    { id: 'contact', val: bg.contact }
   ];
   
   bgs.forEach(b => {
@@ -1161,9 +1200,21 @@ function saveSettings() {
   
   DB.settings.backgrounds = {
     hero: document.getElementById('set-bg-hero-val').value,
-    services: document.getElementById('set-bg-services-val').value,
+    about: document.getElementById('set-bg-about-val').value,
     vm: document.getElementById('set-bg-vm-val').value,
-    vals: document.getElementById('set-bg-vals-val').value
+    vals: document.getElementById('set-bg-vals-val').value,
+    services: document.getElementById('set-bg-services-val').value,
+    roles: document.getElementById('set-bg-roles-val').value,
+    whyUs: document.getElementById('set-bg-whyUs-val').value,
+    howWeWork: document.getElementById('set-bg-howWeWork-val').value,
+    projects: document.getElementById('set-bg-projects-val').value,
+    news: document.getElementById('set-bg-news-val').value,
+    gallery: document.getElementById('set-bg-gallery-val').value,
+    team: document.getElementById('set-bg-team-val').value,
+    jobs: document.getElementById('set-bg-jobs-val').value,
+    testimonials: document.getElementById('set-bg-testimonials-val').value,
+    partners: document.getElementById('set-bg-partners-val').value,
+    contact: document.getElementById('set-bg-contact-val').value
   };
   
   DB.settings.visibleSections = {
