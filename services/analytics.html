@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang="ar" data-theme="dark">
+<head>
+  <script>
+    (function() {
+      var lang = localStorage.getItem('riaya-lang') || 'ar';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-ar>التقارير والتحليلات | عافية لوجستيك</title>
+  <title data-en>Reports & Analytics | Aafiya Logistics</title>
+  <meta name="description" content="لوحات تحكم ذكية وتقارير أداء دورية توفر لك رؤية كاملة وتحليلات تفصيلية لتحسين كفاءة عملياتك اللوجستية | Logistics reports and BI analytics in Saudi Arabia">
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=22">
+  <style>
+    body {
+      padding-top: 80px;
+    }
+    .svc-detail-hero {
+      position: relative;
+      padding: 80px 44px;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--bdr);
+      overflow: hidden;
+    }
+    .svc-detail-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255, 107, 26, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .svc-detail-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 44px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--or);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      transition: transform 0.2s ease;
+    }
+    .back-btn:hover {
+      transform: translateX(-4px);
+    }
+    [data-lang="en"] .back-btn:hover {
+      transform: translateX(4px);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--bdr);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      border-color: rgba(255, 107, 26, 0.3);
+      transform: translateY(-4px);
+    }
+    .feature-card i {
+      font-size: 32px;
+      color: var(--or);
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--txt);
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--txt2);
+      line-height: 1.6;
+    }
+    .sla-section {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 48px 0;
+    }
+    .sla-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      text-align: right;
+    }
+    [data-lang="en"] .sla-table {
+      text-align: left;
+    }
+    .sla-table th, .sla-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--bdr);
+      font-size: 14px;
+    }
+    .sla-table th {
+      color: var(--or);
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .sla-table td strong {
+      color: var(--txt);
+    }
+    @media(max-width: 900px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .svc-detail-hero, .svc-detail-container {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Reports & Analytics",
+    "provider": {
+      "@type": "Organization",
+      "name": "عافية لوجستيك",
+      "url": "https://aafiyahala.fun"
+    },
+    "areaServed": "SA",
+    "description": "لوحات تحكم ذكية وتقارير أداء دورية توفر لك رؤية كاملة وتحليلات تفصيلية لتحسين كفاءة عملياتك اللوجستية وسلاسل الإمداد."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="nav" class="scrolled">
+    <div class="nav-logo" onclick="location.href='../index.html'">
+      <img src="../img/logo.png" alt="Aafiya Logistics">
+    </div>
+    <div class="nav-links">
+      <a href="../index.html" class="nl" data-ar>الرئيسية</a>
+      <a href="../index.html" class="nl" data-en>Home</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-lang" onclick="toggleLangBtn()">EN</button>
+      <button class="btn-cta" onclick="location.href='../index.html#contact-s'" data-ar>احصل على عرض</button>
+      <button class="btn-cta" onclick="location.href='../index.html#contact-s'" data-en>Get a Quote</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="svc-detail-hero">
+    <div class="svc-detail-container" style="padding: 0;">
+      <a href="../index.html" class="back-btn">
+        <span data-ar>← العودة للرئيسية</span>
+        <span data-en>← Back to Home</span>
+      </a>
+      <h1 class="sec-title">
+        <span data-ar>التقارير <span class="hl">والتحليلات الذكية</span></span>
+        <span data-en>Reports & <span class="hl">Logistics Analytics</span></span>
+      </h1>
+      <p class="sec-sub">
+        <span data-ar>بيانات دقيقة وتحليلات تفصيلية تدعم اتخاذ القرارات التشغيلية الذكية، نمنحكم رؤية كاملة وشاملة لأداء سلسلة الإمداد والتوزيع الخاصة بكم.</span>
+        <span data-en>Accurate data and deep Business Intelligence reports to power your operations, providing end-to-end transparency over your logistics performance.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="svc-detail-container">
+    <h2 class="sec-title" style="font-size: 28px;">
+      <span data-ar>مزايا التحليلات التشغيلية</span>
+      <span data-en>Operational Analytics Advantages</span>
+    </h2>
+    
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3 data-ar>لوحات تحكم تفاعلية تفصيلية</h3>
+        <h3 data-en>Interactive Live Dashboards</h3>
+        <p data-ar>مراقبة لحظية لمؤشرات الأداء الرئيسية مثل سرعة التوصيل ونسبة الالتزام بمواعيد الشحن وحالة المخزون الحالي.</p>
+        <p data-en>Monitor critical KPIs including on-time dispatch rates, courier efficiency, and active warehouse inventory balances.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <i class="fa-solid fa-file-invoice"></i>
+        <h3 data-ar>تقارير دورية وشاملة (KPIs)</h3>
+        <h3 data-en>Weekly & Monthly Audits</h3>
+        <p data-ar>تقارير أسبوعية وشهرية توفر تحليلاً شاملاً لنقاط القوة والضعف والفرص المتاحة لتوفير النفقات التشغيلية.</p>
+        <p data-en>Comprehensive logistics data packets breaking down costs and performance trends to identify efficiency gains.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <i class="fa-solid fa-brain"></i>
+        <h3 data-ar>التنبؤ الذكي بالطلب والمبيعات</h3>
+        <h3 data-en>Demand Forecasting Models</h3>
+        <p data-ar>استغلال تقنيات تحليل البيانات للتنبؤ بأحجام الشحن والطلب المستقبلي لتجهيز الموارد وحجزها مسبقاً.</p>
+        <p data-en>Utilize historical data trends to predict outbound delivery patterns and secure transit capacity proactively.</p>
+      </div>
+    </div>
+
+    <!-- SLAs -->
+    <div class="sla-section">
+      <h2 class="sec-title" style="font-size: 24px; margin-bottom: 8px;">
+        <span data-ar>اتفاقية مستوى الخدمة والمعايير (SLA)</span>
+        <span data-en>Service Level Agreements (SLA)</span>
+      </h2>
+      <p style="color: var(--txt2); font-size: 14px;">
+        <span data-ar>نلتزم بأعلى معايير الدقة والشفافية وتوافر البيانات لعمليات شركتكم:</span>
+        <span data-en>Guarantee total data accuracy, availability, and reporting timelines under concrete SLAs:</span>
+      </p>
+      
+      <table class="sla-table">
+        <thead>
+          <tr>
+            <th data-ar>المؤشر</th>
+            <th data-en>KPI Metric</th>
+            <th data-ar>المعيار المستهدف</th>
+            <th data-en>Target standard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-ar>دقة وصحة البيانات المالية والتشغيلية الواردة بالتقارير</td>
+            <td data-en>Reporting Data Accuracy</td>
+            <td><strong>100%</strong></td>
+          </tr>
+          <tr>
+            <td data-ar>جاهزية وتوافر لوحة التحكم الرقمية للعميل (System Uptime)</td>
+            <td data-en>Dashboard System Uptime</td>
+            <td><strong>&gt; 99.9%</strong></td>
+          </tr>
+          <tr>
+            <td data-ar>زمن إصدار التقارير الدورية (أسبوعية/شهرية)</td>
+            <td data-en>Report Delivery Turnaround</td>
+            <td><strong>&lt; 24 ساعة (Hours) من انتهاء الفترة</strong></td>
+          </tr>
+          <tr>
+            <td data-ar>الاستجابة لطلبات تخصيص التقارير أو ربط البيانات الإضافية</td>
+            <td data-en>Custom Report Setup SLA</td>
+            <td><strong>&lt; 3 أيام عمل (Business Days)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pricing Section -->
+    <div style="background: rgba(255,107,26,0.03); border: 1px solid rgba(255,107,26,0.15); border-radius: 20px; padding: 40px; text-align: center;">
+      <h2 class="sec-title" style="font-size: 26px;">
+        <span data-ar>آلية توفير الخدمة والتعاقد للتقارير</span>
+        <span data-en>Service Provisioning & Pricing</span>
+      </h2>
+      <p class="sec-sub" style="margin: 12px auto 28px;">
+        <span data-ar>نوفر باقات مرنة لتمكين شركائنا من الوصول للبيانات والتحليلات حسب احتياجات قطاعات أعمالهم:</span>
+        <span data-en>Agile analytics packages designed to grant data access according to your operational demands:</span>
+      </p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <div style="background: var(--card); border: 1px solid var(--bdr); border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+          <h4 style="color: var(--or); font-weight: 800; font-size: 16px; margin-bottom: 8px;" data-ar>لوحة التحكم الأساسية (مشمولة مجاناً)</h4>
+          <h4 style="color: var(--or); font-weight: 800; font-size: 16px; margin-bottom: 8px;" data-en>Standard Analytics (Included Free)</h4>
+          <p style="font-size: 13px; color: var(--txt2);" data-ar>متاحة مجاناً مع جميع عقود النقل والمستودعات لتتبع العمليات والتقارير الأساسية بشكل كامل.</p>
+          <p style="font-size: 13px; color: var(--txt2);" data-en>Standard reporting and tracking portal access bundled with all active warehousing/freight contracts.</p>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--bdr); border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+          <h4 style="color: var(--or); font-weight: 800; font-size: 16px; margin-bottom: 8px;" data-ar>تحليلات متقدمة مخصصة (BI Integration)</h4>
+          <h4 style="color: var(--or); font-weight: 800; font-size: 16px; margin-bottom: 8px;" data-en>Enterprise Custom BI Integration</h4>
+          <p style="font-size: 13px; color: var(--txt2);" data-ar>تطوير لوحات تحكم وربط قواعد بيانات إضافية مخصصة للشركات الكبرى لتحليلات متعمقة وسلوكية.</p>
+          <p style="font-size: 13px; color: var(--txt2);" data-en>Tailored business intelligence models and dedicated database views customized for large enterprises.</p>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="location.href='../index.html#contact-s'" style="margin-top: 32px; padding: 14px 32px; font-size: 15px;">
+        <span data-ar>تواصل مع فريق تحليل البيانات</span>
+        <span data-en>Contact Data Analytics Experts</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background:#060C17; border-top: 1px solid var(--bdr); padding: 40px 44px; text-align: center;">
+    <p style="font-size: 13px; color: var(--txt2);">
+      © 2026 <span style="color: var(--or); font-weight: 700;">عافية لوجستيك | Aafiya Logistics</span>. جميع الحقوق محفوظة.
+    </p>
+  </footer>
+
+  <script>
+    function toggleLangBtn() {
+      var currentLang = localStorage.getItem('riaya-lang') || 'ar';
+      var nextLang = currentLang === 'ar' ? 'en' : 'ar';
+      localStorage.setItem('riaya-lang', nextLang);
+      document.documentElement.setAttribute('data-lang', nextLang);
+      document.documentElement.setAttribute('dir', nextLang === 'ar' ? 'rtl' : 'ltr');
+      var btn = document.querySelector('.btn-lang');
+      if(btn) btn.textContent = nextLang === 'ar' ? 'EN' : 'عر';
+    }
+    window.addEventListener('load', function() {
+      var currentLang = localStorage.getItem('riaya-lang') || 'ar';
+      var btn = document.querySelector('.btn-lang');
+      if(btn) btn.textContent = currentLang === 'ar' ? 'EN' : 'عر';
+    });
+  </script>
+</body>
+</html>

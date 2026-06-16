@@ -52,11 +52,12 @@
     <div class="sb-lbl"><span data-ar>الرئيسية</span><span data-en>Main</span></div>
     <div class="sb-it act" onclick="showP('overview',this)"><span class="sb-ic">📊</span><span data-ar>نظرة عامة</span><span data-en>Overview</span></div>
     <div class="sb-lbl"><span data-ar>المحتوى</span><span data-en>Content</span></div>
+    <div class="sb-it" onclick="showP('inquiries-p',this)"><span class="sb-ic">📥</span><span data-ar>طلبات الاتصال</span><span data-en>Inquiries</span></div>
     <div class="sb-it" onclick="showP('prj-p',this)"><span class="sb-ic">🚀</span><span data-ar>المشاريع</span><span data-en>Projects</span></div>
     <div class="sb-it" onclick="showP('news-p',this)"><span class="sb-ic">📰</span><span data-ar>الأخبار</span><span data-en>News</span></div>
     <div class="sb-it" onclick="showP('team-p',this)"><span class="sb-ic">👥</span><span data-ar>الفريق</span><span data-en>Team</span></div>
     <div class="sb-it" onclick="showP('jobs-p',this)"><span class="sb-ic">💼</span><span data-ar>الوظائف</span><span data-en>Jobs</span></div>
-    <div class="sb-it" onclick="showP('gallery-p',this)"><span class="sb-ic">🖼️</span><span data-ar>المعرض</span><span data-en>Gallery</span></div>
+    <div class="sb-it" onclick="showP('gallery-p',this)"><span class="sb-ic">🖼️</span><span data-ar>معرض أعمالنا</span><span data-en>Gallery</span></div>
     <div class="sb-it" onclick="showP('ptn-p',this)"><span class="sb-ic">🤝</span><span data-ar>الشركاء</span><span data-en>Partners</span></div>
     <div class="sb-it" onclick="showP('svc-p',this)"><span class="sb-ic">⚙️</span><span data-ar>الخدمات</span><span data-en>Services</span></div>
     <div class="sb-it" onclick="showP('test-p',this)"><span class="sb-ic">⭐</span><span data-ar>التقييمات</span><span data-en>Testimonials</span></div>
@@ -84,6 +85,41 @@
       </div>
       <div class="ch-box rv" style="margin-bottom:18px;"><h3><span data-ar>معدلات الأداء</span><span data-en>Performance Rates</span></h3><div style="margin-top:14px;"><div class="prog-wrap"><div class="ph"><span data-ar>رضا العملاء</span><span data-en>Client Satisfaction</span><span style="color:var(--or)">95%</span></div><div class="pb"><div class="pf" style="width:0" data-w="95%"></div></div></div><div class="prog-wrap"><div class="ph"><span data-ar>معدل التسليم</span><span data-en>Delivery Rate</span><span style="color:var(--or)">99.2%</span></div><div class="pb"><div class="pf" style="width:0" data-w="99.2%"></div></div></div><div class="prog-wrap"><div class="ph"><span data-ar>معدل الحضور</span><span data-en>Attendance Rate</span><span style="color:var(--or)">98%</span></div><div class="pb"><div class="pf" style="width:0" data-w="98%"></div></div></div><div class="prog-wrap"><div class="ph"><span data-ar>السلامة</span><span data-en>Safety Compliance</span><span style="color:var(--or)">100%</span></div><div class="pb"><div class="pf" style="width:0" data-w="100%"></div></div></div></div></div>
     </div>
+    <!-- Inquiries Panel -->
+    <div id="panel-inquiries-p" class="dp">
+      <div class="dh">
+        <div>
+          <div class="dt"><span data-ar>طلبات الاتصال</span><span data-en>Inquiries</span></div>
+          <div class="ds"><span data-ar>إدارة طلبات الاتصال وعروض الأسعار من العملاء</span><span data-en>Manage contact and quote requests from clients</span></div>
+        </div>
+      </div>
+      <div class="dt-box">
+        <div class="dt-head">
+          <h3><span data-ar>صندوق الوارد</span><span data-en>Inbox</span></h3>
+          <span class="bdg bdg-o" id="inq-count">0</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th><span data-ar>التذكرة</span><span data-en>Ticket</span></th>
+                <th><span data-ar>الاسم</span><span data-en>Name</span></th>
+                <th><span data-ar>الجوال</span><span data-en>Mobile</span></th>
+                <th><span data-ar>البريد</span><span data-en>Email</span></th>
+                <th><span data-ar>الخدمة</span><span data-en>Service</span></th>
+                <th><span data-ar>الرسالة</span><span data-en>Message</span></th>
+                <th><span data-ar>التاريخ</span><span data-en>Date</span></th>
+                <th><span data-ar>إجراءات</span><span data-en>Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="inq-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <!-- Projects Panel -->
     <div id="panel-prj-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>المشاريع</span><span data-en>Projects</span></div><div class="ds"></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('prj-mo')">+</button></div><div class="tabs"><button class="tab act" onclick="filterPrj('all',this)"><span data-ar>الكل</span><span data-en>All</span></button><button class="tab" onclick="filterPrj('completed',this)"><span data-ar>مكتملة</span><span data-en>Done</span></button><button class="tab" onclick="filterPrj('ongoing',this)"><span data-ar>جارية</span><span data-en>Ongoing</span></button></div><div class="il" id="prj-list"></div></div>
     <!-- News Panel -->
@@ -93,7 +129,7 @@
     <!-- Jobs Panel -->
     <div id="panel-jobs-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الوظائف</span><span data-en>Jobs</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('job-mo')">+</button></div><div class="il" id="jobs-list"></div></div>
     <!-- Gallery Panel -->
-    <div id="panel-gallery-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>المعرض</span><span data-en>Gallery</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('gal-mo')">+</button></div><div class="il" id="gallery-list"></div></div>
+    <div id="panel-gallery-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>معرض أعمالنا</span><span data-en>Gallery</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('gal-mo')">+</button></div><div class="il" id="gallery-list"></div></div>
     <!-- Partners Panel -->
     <div id="panel-ptn-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الشركاء</span><span data-en>Partners</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('ptn-mo')">+</button></div><div class="il" id="ptn-list"></div></div>
     <!-- Services Panel -->
@@ -337,7 +373,7 @@
 
             <!-- Gallery Background -->
             <div class="f-grp">
-              <label><span data-ar>خلفية معرض الصور (Gallery)</span><span data-en>Gallery Section Background</span></label>
+              <label><span data-ar>خلفية معرض أعمالنا (Gallery)</span><span data-en>Gallery Section Background</span></label>
               <div class="up-area" id="gallery-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-gallery-val','gallery-bg-prev','gallery-bg-up')">
                 <input type="file" accept="image/*" onchange="upImg(this,'set-bg-gallery-val','gallery-bg-prev','gallery-bg-up')">
                 <img id="gallery-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
@@ -443,7 +479,7 @@
             </div>
             <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
               <input type="checkbox" id="set-sec-gallery" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
-              <label for="set-sec-gallery" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>معرض الصور</span><span data-en>Gallery</span></label>
+              <label for="set-sec-gallery" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>معرض أعمالنا</span><span data-en>Gallery</span></label>
             </div>
             <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
               <input type="checkbox" id="set-sec-team" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
@@ -472,7 +508,7 @@
     </div>
 
     <!-- Contact Panel -->
-    <div id="panel-contact-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>بيانات التواصل</span><span data-en>Contact Info</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="saveContact()"><span data-ar>💾 حفظ</span><span data-en>💾 Save</span></button></div><div class="fg" id="contact-panel-form" style="padding:20px;"><div class="f-grp"><label><span data-ar>الهاتف</span><span data-en>Phone</span></label><input type="tel" id="ct-phone" placeholder="+966..."></div><div class="f-grp"><label>WhatsApp</label><input type="tel" id="ct-whatsapp" placeholder="+966..."></div><div class="f-grp"><label>Email</label><input type="email" id="ct-email" placeholder="info@..."></div><div class="f-grp"><label><span data-ar>الموقع الإلكتروني</span><span data-en>Website</span></label><input type="text" id="ct-website" placeholder="raya1.site"></div><div class="f-grp"><label><span data-ar>العنوان (عربي)</span><span data-en>Location (Arabic)</span></label><input type="text" id="ct-loc-ar" placeholder="..."></div><div class="f-grp"><label><span data-ar>العنوان (إنجليزي)</span><span data-en>Location (English)</span></label><input type="text" id="ct-loc-en" placeholder="..."></div></div></div>
+    <div id="panel-contact-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>بيانات التواصل</span><span data-en>Contact Info</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="saveContact()"><span data-ar>💾 حفظ</span><span data-en>💾 Save</span></button></div><div class="fg" id="contact-panel-form" style="padding:20px;"><div class="f-grp"><label><span data-ar>الهاتف</span><span data-en>Phone</span></label><input type="tel" id="ct-phone" placeholder="+966..."></div><div class="f-grp"><label>WhatsApp</label><input type="tel" id="ct-whatsapp" placeholder="+966..."></div><div class="f-grp"><label>Email</label><input type="email" id="ct-email" placeholder="info@..."></div><div class="f-grp"><label><span data-ar>الموقع الإلكتروني</span><span data-en>Website</span></label><input type="text" id="ct-website" placeholder="aafiyahala.fun"></div><div class="f-grp"><label><span data-ar>العنوان (عربي)</span><span data-en>Location (Arabic)</span></label><input type="text" id="ct-loc-ar" placeholder="..."></div><div class="f-grp"><label><span data-ar>العنوان (إنجليزي)</span><span data-en>Location (English)</span></label><input type="text" id="ct-loc-en" placeholder="..."></div></div></div>
     <!-- Social Media Panel -->
     <div id="panel-social-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>السوشل ميديا</span><span data-en>Social Media</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('social-mo')">+</button></div><div class="il" id="social-list"></div></div>
   </main>

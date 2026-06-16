@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang="ar" data-theme="dark">
+<head>
+<script>document.documentElement.classList.add('js-enabled');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="عافية - لوحة التحكم | Aafiya - Dashboard">
+<title>لوحة التحكم | Aafiya Dashboard</title>
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=22">
+</head>
+<body>
+<script>
+(function(){const a=JSON.parse(localStorage.getItem('riaya-auth')||'null');if(!a||Date.now()-a.time>86400000){localStorage.removeItem('riaya-auth');location.replace('auth-7b4d1c.html');return;}})();
+</script>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- NAVBAR -->
+<div id="nav" class="scrolled">
+  <div class="nav-logo" onclick="location.href='index.html'">
+    <img src="img/logo.png" alt="Aafiya Logistics" style="height:46px;">
+  </div>
+  <div class="nav-links">
+    <span class="nl act" data-ar>لوحة التحكم</span>
+    <span class="nl act" data-en>Dashboard</span>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-theme" onclick="toggleTheme()" id="theme-btn" title="تغيير الوضع">🌙</button>
+    <button class="btn-lang" onclick="toggleLang()" id="lang-btn">EN</button>
+    <button class="btn-cta" onclick="location.href='index.html'" data-ar>🌐 عرض الموقع</button>
+    <button class="btn-cta" onclick="location.href='index.html'" data-en>🌐 View Site</button>
+    <button class="btn-outline" style="font-size:12px;padding:9px 16px;color:#ff4444;border-color:#ff4444;" onclick="logout()" data-ar>🚪 خروج</button>
+    <button class="btn-outline" style="font-size:12px;padding:9px 16px;color:#ff4444;border-color:#ff4444;" onclick="logout()" data-en>🚪 Logout</button>
+    <button class="btn-menu" id="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</div>
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mob-nav">
+  <span class="nl" onclick="location.href='index.html';toggleMenu()">🌐 <span data-ar>عرض الموقع</span><span data-en>View Site</span></span>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard-view" class="view active" style="background:var(--bg);">
+<div class="dash-layout">
+  <aside class="sidebar">
+    <div class="sb-lbl"><span data-ar>الرئيسية</span><span data-en>Main</span></div>
+    <div class="sb-it act" onclick="showP('overview',this)"><span class="sb-ic">📊</span><span data-ar>نظرة عامة</span><span data-en>Overview</span></div>
+    <div class="sb-lbl"><span data-ar>المحتوى</span><span data-en>Content</span></div>
+    <div class="sb-it" onclick="showP('inquiries-p',this)"><span class="sb-ic">📥</span><span data-ar>طلبات الاتصال</span><span data-en>Inquiries</span></div>
+    <div class="sb-it" onclick="showP('prj-p',this)"><span class="sb-ic">🚀</span><span data-ar>المشاريع</span><span data-en>Projects</span></div>
+    <div class="sb-it" onclick="showP('news-p',this)"><span class="sb-ic">📰</span><span data-ar>الأخبار</span><span data-en>News</span></div>
+    <div class="sb-it" onclick="showP('team-p',this)"><span class="sb-ic">👥</span><span data-ar>الفريق</span><span data-en>Team</span></div>
+    <div class="sb-it" onclick="showP('jobs-p',this)"><span class="sb-ic">💼</span><span data-ar>الوظائف</span><span data-en>Jobs</span></div>
+    <div class="sb-it" onclick="showP('gallery-p',this)"><span class="sb-ic">🖼️</span><span data-ar>معرض أعمالنا</span><span data-en>Gallery</span></div>
+    <div class="sb-it" onclick="showP('ptn-p',this)"><span class="sb-ic">🤝</span><span data-ar>الشركاء</span><span data-en>Partners</span></div>
+    <div class="sb-it" onclick="showP('svc-p',this)"><span class="sb-ic">⚙️</span><span data-ar>الخدمات</span><span data-en>Services</span></div>
+    <div class="sb-it" onclick="showP('test-p',this)"><span class="sb-ic">⭐</span><span data-ar>التقييمات</span><span data-en>Testimonials</span></div>
+    <div class="sb-lbl"><span data-ar>الإعدادات</span><span data-en>Settings</span></div>
+    <div class="sb-it" onclick="showP('appearance-p',this)"><span class="sb-ic">🎨</span><span data-ar>مظهر ومحتوى الموقع</span><span data-en>Theme & Content</span></div>
+    <div class="sb-it" id="sb-toggle-sections" onclick="showP('appearance-p',this); switchSettingsTab('sections', document.querySelector('.settings-tab-btn[onclick*=\'sections\']'))"><span class="sb-ic">🎛️</span><span data-ar>التحكم بالأقسام</span><span data-en>Toggle Sections</span></div>
+    <div class="sb-it" onclick="showP('contact-p',this)"><span class="sb-ic">📞</span><span data-ar>التواصل</span><span data-en>Contact</span></div>
+    <div class="sb-it" onclick="showP('social-p',this)"><span class="sb-ic">🔗</span><span data-ar>السوشل ميديا</span><span data-en>Social Media</span></div>
+    <div class="sb-lbl"><span data-ar>الموقع</span><span data-en>Site</span></div>
+    <div class="sb-it" onclick="location.href='index.html'"><span class="sb-ic">🌐</span><span data-ar>عرض الموقع</span><span data-en>View Site</span></div>
+  </aside>
+  <main class="dash-main">
+    <!-- Overview -->
+    <div id="panel-overview" class="dp act">
+      <div class="dh"><div><div class="dt"><span data-ar>نظرة عامة</span><span data-en>Overview</span></div><div class="ds"><span data-ar>ملخص أداء عافية</span><span data-en>Aafiya performance summary</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;"><span data-ar>↻ تحديث</span><span data-en>↻ Refresh</span></button></div>
+      <div class="kpi-row">
+        <div class="kpi rv d1"><div class="kpi-top"><span class="kpi-ic">👥</span><span class="kpi-tr tr-up">▲ 12%</span></div><div class="kpi-v">500+</div><div class="kpi-l"><span data-ar>إجمالي العملاء</span><span data-en>Total Clients</span></div></div>
+        <div class="kpi rv d2"><div class="kpi-top"><span class="kpi-ic">🚚</span><span class="kpi-tr tr-up">▲ 8%</span></div><div class="kpi-v">15K+</div><div class="kpi-l"><span data-ar>توصيل شهرياً</span><span data-en>Monthly Deliveries</span></div></div>
+        <div class="kpi rv d3"><div class="kpi-top"><span class="kpi-ic">⭐</span><span class="kpi-tr tr-up">▲ 3%</span></div><div class="kpi-v">95%</div><div class="kpi-l"><span data-ar>رضا العملاء</span><span data-en>Satisfaction</span></div></div>
+        <div class="kpi rv d4"><div class="kpi-top"><span class="kpi-ic">✅</span><span class="kpi-tr tr-up">▲ 2%</span></div><div class="kpi-v">99.2%</div><div class="kpi-l"><span data-ar>معدل التسليم</span><span data-en>Delivery Rate</span></div></div>
+      </div>
+      <div class="ch-row">
+        <div class="ch-box rv"><h3><span data-ar>أداء التوصيل الشهري</span><span data-en>Monthly Delivery Performance</span></h3><div class="bar-ch"><div class="bg"><div class="bw"><div class="bar" style="height:62%;background:var(--bg3)"></div><div class="bar" style="height:78%;background:var(--or)"></div></div><div class="bl"><span data-ar>يناير</span><span data-en>Jan</span></div></div><div class="bg"><div class="bw"><div class="bar" style="height:70%;background:var(--bg3)"></div><div class="bar" style="height:86%;background:var(--or)"></div></div><div class="bl"><span data-ar>فبراير</span><span data-en>Feb</span></div></div><div class="bg"><div class="bw"><div class="bar" style="height:55%;background:var(--bg3)"></div><div class="bar" style="height:80%;background:var(--or)"></div></div><div class="bl"><span data-ar>مارس</span><span data-en>Mar</span></div></div><div class="bg"><div class="bw"><div class="bar" style="height:80%;background:var(--bg3)"></div><div class="bar" style="height:96%;background:var(--or)"></div></div><div class="bl"><span data-ar>أبريل</span><span data-en>Apr</span></div></div><div class="bg"><div class="bw"><div class="bar" style="height:65%;background:var(--bg3)"></div><div class="bar" style="height:90%;background:var(--or)"></div></div><div class="bl"><span data-ar>مايو</span><span data-en>May</span></div></div><div class="bg"><div class="bw"><div class="bar" style="height:90%;background:var(--bg3)"></div><div class="bar" style="height:100%;background:var(--or)"></div></div><div class="bl"><span data-ar>يونيو</span><span data-en>Jun</span></div></div></div></div>
+        <div class="ch-box rv d2"><h3><span data-ar>توزيع الخدمات</span><span data-en>Service Distribution</span></h3><div class="dn-wrap"><svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="48" fill="none" stroke="var(--bg3)" stroke-width="15"/><circle cx="65" cy="65" r="48" fill="none" stroke="var(--or)" stroke-width="15" stroke-dasharray="181 120" stroke-dashoffset="0"/><circle cx="65" cy="65" r="48" fill="none" stroke="#1C6B8A" stroke-width="15" stroke-dasharray="75 226" stroke-dashoffset="-181"/><circle cx="65" cy="65" r="48" fill="none" stroke="#4CAF50" stroke-width="15" stroke-dasharray="45 256" stroke-dashoffset="-256"/></svg><div class="dn-ctr"><div class="dn-v">100%</div><div class="dn-s"><span data-ar>الخدمات</span><span data-en>Services</span></div></div></div><div class="leg"><div class="leg-i"><div class="ld" style="background:var(--or)"></div><span data-ar>النقل 60%</span><span data-en>Transport 60%</span></div><div class="leg-i"><div class="ld" style="background:#1C6B8A"></div><span data-ar>المستودعات 25%</span><span data-en>Warehouse 25%</span></div><div class="leg-i"><div class="ld" style="background:#4CAF50"></div><span data-ar>القوى 15%</span><span data-en>Workforce 15%</span></div></div></div>
+      </div>
+      <div class="ch-box rv" style="margin-bottom:18px;"><h3><span data-ar>معدلات الأداء</span><span data-en>Performance Rates</span></h3><div style="margin-top:14px;"><div class="prog-wrap"><div class="ph"><span data-ar>رضا العملاء</span><span data-en>Client Satisfaction</span><span style="color:var(--or)">95%</span></div><div class="pb"><div class="pf" style="width:0" data-w="95%"></div></div></div><div class="prog-wrap"><div class="ph"><span data-ar>معدل التسليم</span><span data-en>Delivery Rate</span><span style="color:var(--or)">99.2%</span></div><div class="pb"><div class="pf" style="width:0" data-w="99.2%"></div></div></div><div class="prog-wrap"><div class="ph"><span data-ar>معدل الحضور</span><span data-en>Attendance Rate</span><span style="color:var(--or)">98%</span></div><div class="pb"><div class="pf" style="width:0" data-w="98%"></div></div></div><div class="prog-wrap"><div class="ph"><span data-ar>السلامة</span><span data-en>Safety Compliance</span><span style="color:var(--or)">100%</span></div><div class="pb"><div class="pf" style="width:0" data-w="100%"></div></div></div></div></div>
+    </div>
+    <!-- Inquiries Panel -->
+    <div id="panel-inquiries-p" class="dp">
+      <div class="dh">
+        <div>
+          <div class="dt"><span data-ar>طلبات الاتصال</span><span data-en>Inquiries</span></div>
+          <div class="ds"><span data-ar>إدارة طلبات الاتصال وعروض الأسعار من العملاء</span><span data-en>Manage contact and quote requests from clients</span></div>
+        </div>
+      </div>
+      <div class="dt-box">
+        <div class="dt-head">
+          <h3><span data-ar>صندوق الوارد</span><span data-en>Inbox</span></h3>
+          <span class="bdg bdg-o" id="inq-count">0</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th><span data-ar>التذكرة</span><span data-en>Ticket</span></th>
+                <th><span data-ar>الاسم</span><span data-en>Name</span></th>
+                <th><span data-ar>الجوال</span><span data-en>Mobile</span></th>
+                <th><span data-ar>البريد</span><span data-en>Email</span></th>
+                <th><span data-ar>الخدمة</span><span data-en>Service</span></th>
+                <th><span data-ar>الرسالة</span><span data-en>Message</span></th>
+                <th><span data-ar>التاريخ</span><span data-en>Date</span></th>
+                <th><span data-ar>إجراءات</span><span data-en>Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="inq-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Panel -->
+    <div id="panel-prj-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>المشاريع</span><span data-en>Projects</span></div><div class="ds"></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('prj-mo')">+</button></div><div class="tabs"><button class="tab act" onclick="filterPrj('all',this)"><span data-ar>الكل</span><span data-en>All</span></button><button class="tab" onclick="filterPrj('completed',this)"><span data-ar>مكتملة</span><span data-en>Done</span></button><button class="tab" onclick="filterPrj('ongoing',this)"><span data-ar>جارية</span><span data-en>Ongoing</span></button></div><div class="il" id="prj-list"></div></div>
+    <!-- News Panel -->
+    <div id="panel-news-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الأخبار</span><span data-en>News</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('news-mo')">+</button></div><div class="il" id="news-list"></div></div>
+    <!-- Team Panel -->
+    <div id="panel-team-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الفريق</span><span data-en>Team</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('team-mo')">+</button></div><div class="il" id="team-list"></div></div>
+    <!-- Jobs Panel -->
+    <div id="panel-jobs-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الوظائف</span><span data-en>Jobs</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('job-mo')">+</button></div><div class="il" id="jobs-list"></div></div>
+    <!-- Gallery Panel -->
+    <div id="panel-gallery-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>معرض أعمالنا</span><span data-en>Gallery</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('gal-mo')">+</button></div><div class="il" id="gallery-list"></div></div>
+    <!-- Partners Panel -->
+    <div id="panel-ptn-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الشركاء</span><span data-en>Partners</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('ptn-mo')">+</button></div><div class="il" id="ptn-list"></div></div>
+    <!-- Services Panel -->
+    <div id="panel-svc-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>الخدمات</span><span data-en>Services</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('svc-mo')">+</button></div><div class="il" id="svc-list"></div></div>
+    <!-- Testimonials Panel -->
+    <div id="panel-test-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>التقييمات</span><span data-en>Testimonials</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('test-mo')">+</button></div><div class="il" id="test-list"></div></div>
+    <!-- Appearance and Content Settings Panel -->
+    <div id="panel-appearance-p" class="dp">
+      <div class="dh">
+        <div>
+          <div class="dt"><span data-ar>مظهر ومحتوى الموقع</span><span data-en>Theme & Content Settings</span></div>
+          <div class="ds"><span data-ar>تخصيص كامل للألوان والشعارات ومحتوى البنرات والخلفيات</span><span data-en>Customize colors, logos, banners, and background images</span></div>
+        </div>
+        <button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="saveSettings()"><span data-ar>💾 حفظ الإعدادات</span><span data-en>💾 Save Settings</span></button>
+      </div>
+      
+      <div class="tabs" style="margin-bottom: 20px; display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px;">
+        <button class="tab act settings-tab-btn" onclick="switchSettingsTab('general', this)"><span data-ar>عام واسم الموقع</span><span data-en>General</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('colors', this)"><span data-ar>ألوان الهوية</span><span data-en>Colors</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('hero', this)"><span data-ar>قسم البنر الترحيبي</span><span data-en>Hero Section</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('about', this)"><span data-ar>من نحن ورؤيتنا</span><span data-en>About & Vision</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('backgrounds', this)"><span data-ar>الخلفيات</span><span data-en>Backgrounds</span></button>
+        <button class="tab settings-tab-btn" onclick="switchSettingsTab('sections', this)"><span data-ar>التحكم بالأقسام</span><span data-en>Toggle Sections</span></button>
+      </div>
+
+      <div class="settings-content-wrapper" style="background: var(--card); border: 1px solid var(--bdr); border-radius: 16px; padding: 24px;">
+        
+        <!-- Tab 1: General Settings -->
+        <div class="settings-tab-panel act" id="set-tab-general">
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>اسم الموقع (عربي)</span><span data-en>Site Name (AR)</span></label><input type="text" id="set-name-ar"></div>
+            <div class="f-grp"><label><span data-ar>اسم الموقع (إنجليزي)</span><span data-en>Site Name (EN)</span></label><input type="text" id="set-name-en"></div>
+            <div class="f-grp full">
+              <label><span data-ar>شعار الموقع</span><span data-en>Website Logo</span></label>
+              <div class="up-area" id="logo-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-logo-val','logo-prev','logo-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-logo-val','logo-prev','logo-up')">
+                <img id="logo-prev" class="up-prev" style="max-height: 120px; object-fit: contain;">
+                <span class="up-ic" id="logo-up-ic">🖼️</span>
+                <div class="up-txt" id="logo-up-tx"><span data-ar>اسحب أو انقر لرفع شعار جديد</span><span data-en>Drag or click to upload logo</span></div>
+                <div class="up-hint">PNG, JPG, SVG — max 2MB</div>
+              </div>
+              <input type="hidden" id="set-logo-val">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Theme Colors Settings -->
+        <div class="settings-tab-panel" id="set-tab-colors" style="display:none;">
+          <h4 style="margin-bottom: 12px; color: var(--or);"><span data-ar>الوضع الداكن (Dark Mode)</span><span data-en>Dark Mode Colors</span></h4>
+          <div class="fg" style="margin-bottom: 24px;">
+            <div class="f-grp"><label><span data-ar>اللون الأساسي</span><span data-en>Primary Color</span></label><input type="color" id="set-col-dark-or" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>اللون الثانوي</span><span data-en>Secondary Color</span></label><input type="color" id="set-col-dark-or2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الرئيسي</span><span data-en>Main Background</span></label><input type="color" id="set-col-dark-bg" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الثانوي</span><span data-en>Secondary Background</span></label><input type="color" id="set-col-dark-bg2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الثالث</span><span data-en>Tertiary Background</span></label><input type="color" id="set-col-dark-bg3" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون بطاقات العرض</span><span data-en>Card Background</span></label><input type="color" id="set-col-dark-card" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخط الرئيسي</span><span data-en>Text Color</span></label><input type="color" id="set-col-dark-txt" style="height:44px;padding:2px;cursor:pointer;"></div>
+          </div>
+
+          <h4 style="margin-bottom: 12px; color: var(--or);"><span data-ar>الوضع المضيء (Light Mode)</span><span data-en>Light Mode Colors</span></h4>
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>اللون الأساسي</span><span data-en>Primary Color</span></label><input type="color" id="set-col-light-or" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>اللون الثانوي</span><span data-en>Secondary Color</span></label><input type="color" id="set-col-light-or2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الرئيسي</span><span data-en>Main Background</span></label><input type="color" id="set-col-light-bg" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الثانوي</span><span data-en>Secondary Background</span></label><input type="color" id="set-col-light-bg2" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخلفية الثالث</span><span data-en>Tertiary Background</span></label><input type="color" id="set-col-light-bg3" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون بطاقات العرض</span><span data-en>Card Background</span></label><input type="color" id="set-col-light-card" style="height:44px;padding:2px;cursor:pointer;"></div>
+            <div class="f-grp"><label><span data-ar>لون الخط الرئيسي</span><span data-en>Text Color</span></label><input type="color" id="set-col-light-txt" style="height:44px;padding:2px;cursor:pointer;"></div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Hero Section Settings -->
+        <div class="settings-tab-panel" id="set-tab-hero" style="display:none;">
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>نص الشارة الصغير (عربي)</span><span data-en>Badge Text (AR)</span></label><input type="text" id="set-hero-badge-ar"></div>
+            <div class="f-grp"><label><span data-ar>نص الشارة الصغير (إنجليزي)</span><span data-en>Badge Text (EN)</span></label><input type="text" id="set-hero-badge-en"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - السطر الأول (عربي)</span><span data-en>Title - Line 1 (AR)</span></label><input type="text" id="set-hero-l1-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - S1 (إنجليزي)</span><span data-en>Title - L1 (EN)</span></label><input type="text" id="set-hero-l1-en"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - السطر الثاني (عربي)</span><span data-en>Title - Line 2 (AR)</span></label><input type="text" id="set-hero-l2-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - S2 (إنجليزي)</span><span data-en>Title - L2 (EN)</span></label><input type="text" id="set-hero-l2-en"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - السطر الثالث (عربي)</span><span data-en>Title - Line 3 (AR)</span></label><input type="text" id="set-hero-l3-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان - S3 (إنجليزي)</span><span data-en>Title - L3 (EN)</span></label><input type="text" id="set-hero-l3-en"></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الترحيبي (عربي)</span><span data-en>Hero Subtitle (AR)</span></label><textarea id="set-hero-sub-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الترحيبي (إنجليزي)</span><span data-en>Hero Subtitle (EN)</span></label><textarea id="set-hero-sub-en"></textarea></div>
+          </div>
+        </div>
+
+        <!-- Tab 4: About & Vision Settings -->
+        <div class="settings-tab-panel" id="set-tab-about" style="display:none;">
+          <div class="fg">
+            <div class="f-grp"><label><span data-ar>العنوان الرئيسي - من نحن (عربي)</span><span data-en>About Hero Title (AR)</span></label><input type="text" id="set-abt-title-ar"></div>
+            <div class="f-grp"><label><span data-ar>العنوان الرئيسي - من نحن (إنجليزي)</span><span data-en>About Hero Title (EN)</span></label><input type="text" id="set-abt-title-en"></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الفرعي لقسم من نحن (عربي)</span><span data-en>About Hero Subtitle (AR)</span></label><textarea id="set-abt-sub-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>الوصف الفرعي لقسم من نحن (إنجليزي)</span><span data-en>About Hero Subtitle (EN)</span></label><textarea id="set-abt-sub-en"></textarea></div>
+            
+            <div class="f-grp"><label><span data-ar>عنوان الرؤية (عربي)</span><span data-en>Vision Title (AR)</span></label><input type="text" id="set-vis-title-ar"></div>
+            <div class="f-grp"><label><span data-ar>عنوان الرؤية (إنجليزي)</span><span data-en>Vision Title (EN)</span></label><input type="text" id="set-vis-title-en"></div>
+            <div class="f-grp full"><label><span data-ar>نص الرؤية (عربي)</span><span data-en>Vision Text (AR)</span></label><textarea id="set-vis-text-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>نص الرؤية (إنجليزي)</span><span data-en>Vision Text (EN)</span></label><textarea id="set-vis-text-en"></textarea></div>
+
+            <div class="f-grp"><label><span data-ar>عنوان الرسالة (عربي)</span><span data-en>Mission Title (AR)</span></label><input type="text" id="set-mis-title-ar"></div>
+            <div class="f-grp"><label><span data-ar>عنوان الرسالة (إنجليزي)</span><span data-en>Mission Title (EN)</span></label><input type="text" id="set-mis-title-en"></div>
+            <div class="f-grp full"><label><span data-ar>نص الرسالة (عربي)</span><span data-en>Mission Text (AR)</span></label><textarea id="set-mis-text-ar"></textarea></div>
+            <div class="f-grp full"><label><span data-ar>نص الرسالة (إنجليزي)</span><span data-en>Mission Text (EN)</span></label><textarea id="set-mis-text-en"></textarea></div>
+
+            <div class="f-grp full">
+              <label><span data-ar>صورة قسم "من نحن" الرئيسي</span><span data-en>About Hero Image</span></label>
+              <div class="up-area" id="abt-hero-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-abt-hero-img-val','abt-hero-prev','abt-hero-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-abt-hero-img-val','abt-hero-prev','abt-hero-up')">
+                <img id="abt-hero-prev" class="up-prev" style="max-height: 200px; object-fit: cover;">
+                <span class="up-ic" id="abt-hero-up-ic">🖼️</span>
+                <div class="up-txt" id="abt-hero-up-tx"><span data-ar>اسحب أو انقر لرفع صورة "من نحن"</span><span data-en>Drag or click to upload main about image</span></div>
+              </div>
+              <input type="hidden" id="set-abt-hero-img-val">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Background Images Settings -->
+        <div class="settings-tab-panel" id="set-tab-backgrounds" style="display:none;">
+          <div class="fg" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
+            <!-- Hero Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية البنر الترحيبي (Hero)</span><span data-en>Hero Banner Background</span></label>
+              <div class="up-area" id="hero-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-hero-val','hero-bg-prev','hero-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-hero-val','hero-bg-prev','hero-bg-up')">
+                <img id="hero-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="hero-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="hero-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-hero-val">
+            </div>
+
+            <!-- About Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم من نحن (About)</span><span data-en>About Us Background</span></label>
+              <div class="up-area" id="about-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-about-val','about-bg-prev','about-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-about-val','about-bg-prev','about-bg-up')">
+                <img id="about-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="about-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="about-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-about-val">
+            </div>
+
+            <!-- Vision / Mission Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم الرؤية والرسالة (Vision)</span><span data-en>Vision & Mission Background</span></label>
+              <div class="up-area" id="vm-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-vm-val','vm-bg-prev','vm-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-vm-val','vm-bg-prev','vm-bg-up')">
+                <img id="vm-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="vm-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="vm-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-vm-val">
+            </div>
+
+            <!-- Values Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم القيم الأساسية (Values)</span><span data-en>Values Background</span></label>
+              <div class="up-area" id="vals-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-vals-val','vals-bg-prev','vals-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-vals-val','vals-bg-prev','vals-bg-up')">
+                <img id="vals-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="vals-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="vals-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-vals-val">
+            </div>
+
+            <!-- Services Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم الخدمات (Services)</span><span data-en>Services Background</span></label>
+              <div class="up-area" id="services-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-services-val','services-bg-prev','services-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-services-val','services-bg-prev','services-bg-up')">
+                <img id="services-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="services-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="services-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-services-val">
+            </div>
+
+            <!-- Roles Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية الكوادر البشرية (Workforce)</span><span data-en>Workforce Roles Background</span></label>
+              <div class="up-area" id="roles-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-roles-val','roles-bg-prev','roles-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-roles-val','roles-bg-prev','roles-bg-up')">
+                <img id="roles-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="roles-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="roles-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-roles-val">
+            </div>
+
+            <!-- Why Us Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم لماذا نحن؟ (Why Us)</span><span data-en>Why Choose Us Background</span></label>
+              <div class="up-area" id="whyUs-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-whyUs-val','whyUs-bg-prev','whyUs-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-whyUs-val','whyUs-bg-prev','whyUs-bg-up')">
+                <img id="whyUs-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="whyUs-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="whyUs-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-whyUs-val">
+            </div>
+
+            <!-- How We Work Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم كيف نعمل؟ (How We Work)</span><span data-en>How We Work Background</span></label>
+              <div class="up-area" id="howWeWork-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-howWeWork-val','howWeWork-bg-prev','howWeWork-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-howWeWork-val','howWeWork-bg-prev','howWeWork-bg-up')">
+                <img id="howWeWork-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="howWeWork-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="howWeWork-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-howWeWork-val">
+            </div>
+
+            <!-- Projects Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم مشاريعنا (Projects)</span><span data-en>Our Projects Background</span></label>
+              <div class="up-area" id="projects-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-projects-val','projects-bg-prev','projects-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-projects-val','projects-bg-prev','projects-bg-up')">
+                <img id="projects-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="projects-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="projects-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-projects-val">
+            </div>
+
+            <!-- News Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم أخبارنا (News)</span><span data-en>News Section Background</span></label>
+              <div class="up-area" id="news-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-news-val','news-bg-prev','news-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-news-val','news-bg-prev','news-bg-up')">
+                <img id="news-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="news-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="news-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-news-val">
+            </div>
+
+            <!-- Gallery Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية معرض أعمالنا (Gallery)</span><span data-en>Gallery Section Background</span></label>
+              <div class="up-area" id="gallery-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-gallery-val','gallery-bg-prev','gallery-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-gallery-val','gallery-bg-prev','gallery-bg-up')">
+                <img id="gallery-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="gallery-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="gallery-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-gallery-val">
+            </div>
+
+            <!-- Team Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية فريق العمل (Team)</span><span data-en>Our Team Background</span></label>
+              <div class="up-area" id="team-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-team-val','team-bg-prev','team-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-team-val','team-bg-prev','team-bg-up')">
+                <img id="team-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="team-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="team-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-team-val">
+            </div>
+
+            <!-- Jobs Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية الوظائف المتاحة (Careers)</span><span data-en>Careers Background</span></label>
+              <div class="up-area" id="jobs-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-jobs-val','jobs-bg-prev','jobs-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-jobs-val','jobs-bg-prev','jobs-bg-up')">
+                <img id="jobs-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="jobs-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="jobs-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-jobs-val">
+            </div>
+
+            <!-- Testimonials Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية آراء العملاء (Testimonials)</span><span data-en>Testimonials Background</span></label>
+              <div class="up-area" id="testimonials-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-testimonials-val','testimonials-bg-prev','testimonials-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-testimonials-val','testimonials-bg-prev','testimonials-bg-up')">
+                <img id="testimonials-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="testimonials-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="testimonials-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-testimonials-val">
+            </div>
+
+            <!-- Partners Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية شركاء النجاح (Partners)</span><span data-en>Partners Background</span></label>
+              <div class="up-area" id="partners-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-partners-val','partners-bg-prev','partners-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-partners-val','partners-bg-prev','partners-bg-up')">
+                <img id="partners-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="partners-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="partners-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-partners-val">
+            </div>
+
+            <!-- Contact Background -->
+            <div class="f-grp">
+              <label><span data-ar>خلفية قسم تواصل معنا (Contact)</span><span data-en>Contact Us Background</span></label>
+              <div class="up-area" id="contact-bg-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'set-bg-contact-val','contact-bg-prev','contact-bg-up')">
+                <input type="file" accept="image/*" onchange="upImg(this,'set-bg-contact-val','contact-bg-prev','contact-bg-up')">
+                <img id="contact-bg-prev" class="up-prev" style="max-height: 140px; object-fit: cover;">
+                <span class="up-ic" id="contact-bg-up-ic">🖼️</span>
+                <div class="up-txt" id="contact-bg-up-tx"><span data-ar>اسحب أو انقر للرفع</span><span data-en>Drag or click to upload</span></div>
+              </div>
+              <input type="hidden" id="set-bg-contact-val">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Sections Visibility Settings -->
+        <div class="settings-tab-panel" id="set-tab-sections" style="display:none;">
+          <h3 style="margin-bottom:20px; font-size:16px; color:var(--txt); font-weight:700;"><span data-ar>التحكم في ظهور أقسام الصفحة الرئيسية</span><span data-en>Control Homepage Sections Visibility</span></h3>
+          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:14px;">
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-about" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-about" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>من نحن ورؤيتنا</span><span data-en>About Us & Vision</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-services" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-services" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>خدماتنا</span><span data-en>Our Services</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-roles" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-roles" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>كوادرنا المتخصصة</span><span data-en>Our Workforce</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-whyUs" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-whyUs" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>لماذا عافية؟</span><span data-en>Why Us?</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-howWeWork" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-howWeWork" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>كيف نعمل؟</span><span data-en>How We Work?</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-projects" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-projects" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>مشاريعنا</span><span data-en>Our Projects</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-news" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-news" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>أخبارنا</span><span data-en>News</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-gallery" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-gallery" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>معرض أعمالنا</span><span data-en>Gallery</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-team" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-team" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>فريق العمل</span><span data-en>Our Team</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-jobs" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-jobs" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>الوظائف المتاحة</span><span data-en>Careers / Jobs</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-testimonials" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-testimonials" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>آراء العملاء</span><span data-en>Testimonials</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-partners" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-partners" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>شركاء النجاح</span><span data-en>Partners</span></label>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.02); border:1px solid var(--bdr); border-radius:10px; padding:12px 16px;">
+              <input type="checkbox" id="set-sec-contact" style="width:18px; height:18px; accent-color:var(--or); cursor:pointer;">
+              <label for="set-sec-contact" style="font-weight:600; cursor:pointer; font-size:13.5px;"><span data-ar>تواصل معنا</span><span data-en>Contact Us</span></label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Contact Panel -->
+    <div id="panel-contact-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>بيانات التواصل</span><span data-en>Contact Info</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="saveContact()"><span data-ar>💾 حفظ</span><span data-en>💾 Save</span></button></div><div class="fg" id="contact-panel-form" style="padding:20px;"><div class="f-grp"><label><span data-ar>الهاتف</span><span data-en>Phone</span></label><input type="tel" id="ct-phone" placeholder="+966..."></div><div class="f-grp"><label>WhatsApp</label><input type="tel" id="ct-whatsapp" placeholder="+966..."></div><div class="f-grp"><label>Email</label><input type="email" id="ct-email" placeholder="info@..."></div><div class="f-grp"><label><span data-ar>الموقع الإلكتروني</span><span data-en>Website</span></label><input type="text" id="ct-website" placeholder="aafiyahala.fun"></div><div class="f-grp"><label><span data-ar>العنوان (عربي)</span><span data-en>Location (Arabic)</span></label><input type="text" id="ct-loc-ar" placeholder="..."></div><div class="f-grp"><label><span data-ar>العنوان (إنجليزي)</span><span data-en>Location (English)</span></label><input type="text" id="ct-loc-en" placeholder="..."></div></div></div>
+    <!-- Social Media Panel -->
+    <div id="panel-social-p" class="dp"><div class="dh"><div><div class="dt"><span data-ar>السوشل ميديا</span><span data-en>Social Media</span></div></div><button class="btn-primary" style="font-size:12px;padding:9px 18px;" onclick="openMo('social-mo')">+</button></div><div class="il" id="social-list"></div></div>
+  </main>
+</div>
+</div>
+
+<!-- ===== MODALS ===== -->
+<!-- Project Modal -->
+<div class="mo" id="prj-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit" id="prj-mo-tit"><span data-ar>إضافة مشروع</span><span data-en>Add Project</span></div><button class="mo-cls" onclick="closeMo('prj-mo')">✕</button></div><input type="hidden" id="prj-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>صورة المشروع</span><span data-en>Project Image</span></label><div class="up-area" id="prj-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'prj-img','prj-prev','prj-up')"><input type="file" accept="image/*" onchange="upImg(this,'prj-img','prj-prev','prj-up')"><img id="prj-prev" class="up-prev"><span class="up-ic" id="prj-up-ic">🖼️</span><div class="up-txt" id="prj-up-tx"><span data-ar>اسحب أو انقر لرفع الصورة</span><span data-en>Drag or click to upload</span></div><div class="up-hint">PNG, JPG — max 5MB</div></div><input type="hidden" id="prj-img"></div><div class="f-grp full"><label><span data-ar>اسم المشروع</span><span data-en>Project Name</span></label><input type="text" id="prj-name" placeholder="..."></div><div class="f-grp full"><label><span data-ar>الوصف</span><span data-en>Description</span></label><textarea id="prj-desc" placeholder="..."></textarea></div><div class="f-grp"><label><span data-ar>العميل</span><span data-en>Client</span></label><input type="text" id="prj-client" placeholder="..."></div><div class="f-grp"><label><span data-ar>المدة</span><span data-en>Duration</span></label><input type="text" id="prj-dur" placeholder="..."></div><div class="f-grp"><label><span data-ar>الحالة</span><span data-en>Status</span></label><select id="prj-st"><option value="completed"><span data-ar>مكتمل</span><span data-en>Completed</span></option><option value="ongoing"><span data-ar>جاري</span><span data-en>Ongoing</span></option></select></div><div class="f-grp"><label>Emoji</label><input type="text" id="prj-ic" placeholder="🚀" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('prj-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="savePrj()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- News Modal -->
+<div class="mo" id="news-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit" id="news-mo-tit"><span data-ar>إضافة خبر</span><span data-en>Add News</span></div><button class="mo-cls" onclick="closeMo('news-mo')">✕</button></div><input type="hidden" id="news-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>صورة الخبر</span><span data-en>News Image</span></label><div class="up-area" id="news-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'news-img','news-prev','news-up')"><input type="file" accept="image/*" onchange="upImg(this,'news-img','news-prev','news-up')"><img id="news-prev" class="up-prev"><span class="up-ic">🖼️</span><div class="up-txt" id="news-up-tx"><span data-ar>اسحب أو انقر</span><span data-en>Drag or click</span></div><div class="up-hint">PNG, JPG</div></div><input type="hidden" id="news-img"></div><div class="f-grp full"><label><span data-ar>العنوان</span><span data-en>Title</span></label><input type="text" id="news-tit" placeholder="..."></div><div class="f-grp full"><label><span data-ar>الملخص</span><span data-en>Excerpt</span></label><textarea id="news-exc" placeholder="..."></textarea></div><div class="f-grp"><label><span data-ar>التصنيف</span><span data-en>Category</span></label><select id="news-cat"><option><span data-ar>إعلان</span><span data-en>Announcement</span></option><option><span data-ar>شراكة</span><span data-en>Partnership</span></option><option><span data-ar>جائزة</span><span data-en>Award</span></option><option><span data-ar>حدث</span><span data-en>Event</span></option></select></div><div class="f-grp"><label><span data-ar>التاريخ</span><span data-en>Date</span></label><input type="date" id="news-dt"></div><div class="f-grp"><label>Emoji</label><input type="text" id="news-ic" placeholder="📢" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('news-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveNews()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- Team Modal -->
+<div class="mo" id="team-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit" id="team-mo-tit"><span data-ar>إضافة عضو</span><span data-en>Add Member</span></div><button class="mo-cls" onclick="closeMo('team-mo')">✕</button></div><input type="hidden" id="team-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>صورة العضو</span><span data-en>Member Photo</span></label><div class="up-area" id="team-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'team-img','team-prev','team-up')"><input type="file" accept="image/*" onchange="upImg(this,'team-img','team-prev','team-up')"><img id="team-prev" class="up-prev"><span class="up-ic">👤</span><div class="up-txt"><span data-ar>اسحب أو انقر</span><span data-en>Drag or click</span></div></div><input type="hidden" id="team-img"></div><div class="f-grp"><label><span data-ar>الاسم</span><span data-en>Name</span></label><input type="text" id="team-nm" placeholder="..."></div><div class="f-grp"><label><span data-ar>المسمى الوظيفي</span><span data-en>Role</span></label><input type="text" id="team-rl" placeholder="..."></div><div class="f-grp full"><label><span data-ar>نبذة</span><span data-en>Bio</span></label><textarea id="team-bio" placeholder="..."></textarea></div><div class="f-grp"><label>Emoji</label><input type="text" id="team-ic" placeholder="👨‍💼" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('team-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveTeam()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- Job Modal -->
+<div class="mo" id="job-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit" id="job-mo-tit"><span data-ar>إضافة وظيفة</span><span data-en>Add Job</span></div><button class="mo-cls" onclick="closeMo('job-mo')">✕</button></div><input type="hidden" id="job-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>المسمى الوظيفي</span><span data-en>Job Title</span></label><input type="text" id="job-tit" placeholder="..."></div><div class="f-grp"><label><span data-ar>القسم</span><span data-en>Department</span></label><input type="text" id="job-dep" placeholder="..."></div><div class="f-grp"><label><span data-ar>الموقع</span><span data-en>Location</span></label><input type="text" id="job-loc" placeholder="..."></div><div class="f-grp"><label><span data-ar>نوع العمل</span><span data-en>Type</span></label><select id="job-tp"><option><span data-ar>دوام كامل</span><span data-en>Full-time</span></option><option><span data-ar>دوام جزئي</span><span data-en>Part-time</span></option><option><span data-ar>عقد</span><span data-en>Contract</span></option></select></div><div class="f-grp"><label>Emoji</label><input type="text" id="job-ic" placeholder="💼" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('job-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveJob()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- Gallery Modal -->
+<div class="mo" id="gal-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit"><span data-ar>إضافة صورة</span><span data-en>Add Photo</span></div><button class="mo-cls" onclick="closeMo('gal-mo')">✕</button></div><input type="hidden" id="gal-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>الصورة</span><span data-en>Image</span></label><div class="up-area" id="gal-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'gal-img','gal-prev','gal-up')"><input type="file" accept="image/*" onchange="upImg(this,'gal-img','gal-prev','gal-up')"><img id="gal-prev" class="up-prev"><span class="up-ic">🖼️</span><div class="up-txt"><span data-ar>اسحب أو انقر</span><span data-en>Drag or click</span></div></div><input type="hidden" id="gal-img"></div><div class="f-grp full"><label><span data-ar>التصنيف</span><span data-en>Category</span></label><select id="gal-cat"><option value="all"><span data-ar>الكل</span><span data-en>All</span></option><option value="warehouse"><span data-ar>مستودعات</span><span data-en>Warehouses</span></option><option value="delivery"><span data-ar>توصيل</span><span data-en>Delivery</span></option><option value="team"><span data-ar>فريق العمل</span><span data-en>Team</span></option></select></div><div class="f-grp full"><label><span data-ar>العنوان</span><span data-en>Title</span></label><input type="text" id="gal-tit" placeholder="..."></div><div class="f-grp"><label>Emoji</label><input type="text" id="gal-ic" placeholder="🏭" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('gal-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveGal()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- Partner Modal -->
+<div class="mo" id="ptn-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit"><span data-ar>إضافة شريك</span><span data-en>Add Partner</span></div><button class="mo-cls" onclick="closeMo('ptn-mo')">✕</button></div><input type="hidden" id="ptn-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>شعار الشريك</span><span data-en>Partner Logo</span></label><div class="up-area" id="ptn-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'ptn-img','ptn-prev','ptn-up')"><input type="file" accept="image/*" onchange="upImg(this,'ptn-img','ptn-prev','ptn-up')"><img id="ptn-prev" class="up-prev"><span class="up-ic">🏢</span><div class="up-txt"><span data-ar>اسحب أو انقر</span><span data-en>Drag or click</span></div></div><input type="hidden" id="ptn-img"></div><div class="f-grp full"><label><span data-ar>الاسم</span><span data-en>Name</span></label><input type="text" id="ptn-nm" placeholder="..."></div><div class="f-grp"><label><span data-ar>نوع الشراكة</span><span data-en>Type</span></label><input type="text" id="ptn-tp" placeholder="..."></div><div class="f-grp"><label>Emoji</label><input type="text" id="ptn-ic" placeholder="🏢" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('ptn-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="savePtn()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- Service Modal -->
+<div class="mo" id="svc-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit"><span data-ar>إضافة خدمة</span><span data-en>Add Service</span></div><button class="mo-cls" onclick="closeMo('svc-mo')">✕</button></div><input type="hidden" id="svc-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>الاسم</span><span data-en>Name</span></label><input type="text" id="svc-nm" placeholder="..."></div><div class="f-grp full"><label><span data-ar>الوصف</span><span data-en>Description</span></label><textarea id="svc-dc" placeholder="..."></textarea></div><div class="f-grp"><label>Emoji</label><input type="text" id="svc-ic" placeholder="⚙️" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('svc-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveSvc()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+
+<!-- Testimonial Modal -->
+<div class="mo" id="test-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit"><span data-ar>إضافة تقييم</span><span data-en>Add Testimonial</span></div><button class="mo-cls" onclick="closeMo('test-mo')">✕</button></div><input type="hidden" id="test-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>صورة العميل</span><span data-en>Client Photo</span></label><div class="up-area" id="test-up" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="drop(event,'test-img','test-prev','test-up')"><input type="file" accept="image/*" onchange="upImg(this,'test-img','test-prev','test-up')"><img id="test-prev" class="up-prev"><span class="up-ic">👤</span><div class="up-txt"><span data-ar>اسحب أو انقر</span><span data-en>Drag or click</span></div></div><input type="hidden" id="test-img"></div><div class="f-grp"><label><span data-ar>الاسم</span><span data-en>Name</span></label><input type="text" id="test-nm" placeholder="..."></div><div class="f-grp"><label><span data-ar>المنصب</span><span data-en>Position</span></label><input type="text" id="test-pos" placeholder="..."></div><div class="f-grp full"><label><span data-ar>التقييم</span><span data-en>Review</span></label><textarea id="test-txt" placeholder="..."></textarea></div><div class="f-grp"><label><span data-ar>النجوم</span><span data-en>Stars</span></label><select id="test-stars"><option value="5">★★★★★</option><option value="4">★★★★</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select></div><div class="f-grp"><label>Emoji</label><input type="text" id="test-ic" placeholder="👨‍💼" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('test-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveTest()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+<!-- Social Modal -->
+<div class="mo" id="social-mo"><div class="mo-box"><div class="mo-hd"><div class="mo-tit"><span data-ar>إضافة رابط</span><span data-en>Add Social Link</span></div><button class="mo-cls" onclick="closeMo('social-mo')">✕</button></div><input type="hidden" id="social-eid"><div class="fg"><div class="f-grp full"><label><span data-ar>اسم المنصة</span><span data-en>Platform Name</span></label><input type="text" id="social-lbl" placeholder="Twitter, Instagram..."></div><div class="f-grp full"><label><span data-ar>الرابط</span><span data-en>URL</span></label><input type="url" id="social-url" placeholder="https://..."></div><div class="f-grp"><label><span data-ar>المنصة</span><span data-en>Platform</span></label><select id="social-plat"><option value="twitter">Twitter / X</option><option value="linkedin">LinkedIn</option><option value="instagram">Instagram</option><option value="facebook">Facebook</option><option value="youtube">YouTube</option><option value="tiktok">TikTok</option><option value="snapchat">Snapchat</option><option value="other">Other</option></select></div><div class="f-grp"><label><span data-ar>أيقونة</span><span data-en>Icon</span></label><input type="text" id="social-ic" placeholder="𝕏" maxlength="4"></div></div><div class="f-actions"><button class="btn-outline" style="font-size:12px;padding:10px 18px;" onclick="closeMo('social-mo')"><span data-ar>إلغاء</span><span data-en>Cancel</span></button><button class="btn-primary" style="font-size:12px;padding:10px 18px;" onclick="saveSocial()"><span data-ar>حفظ</span><span data-en>Save</span></button></div></div></div>
+
+<!-- Toast -->
+<div class="toast" id="toast"><span id="toast-msg">✅</span></div>
+
+<script src="main.js"></script>
+</body>
+</html>

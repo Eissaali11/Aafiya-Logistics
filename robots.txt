@@ -3,4 +3,4 @@ Allow: /
 Disallow: /dashboard.html
 Disallow: /login.html
 
-Sitemap: https://raya1.site/sitemap.xml
+Sitemap: https://aafiyahala.fun/sitemap.xml

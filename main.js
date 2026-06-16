@@ -1,15 +1,16 @@
 // ═══ DATA ═══
 const DB={
+  version: 2,
   projects:[
-    {id:1,name:{ar:"مشروع سلسلة التوزيع الوطنية",en:"National Distribution Chain"},desc:{ar:"إدارة شاملة لسلسلة التوزيع.",en:"Comprehensive distribution chain management."},client:"شركة التجزئة الوطنية",duration:{ar:"8 أشهر",en:"8 months"},status:"completed",icon:"<i class='fa-solid fa-store'></i>",img:""},
-    {id:2,name:{ar:"المستودع الذكي - الرياض",en:"Smart Warehouse - Riyadh"},desc:{ar:"مستودع ذكي بأنظمة تتبع متقدمة.",en:"Smart warehouse with advanced tracking systems."},client:"مجموعة الأعمال الخليجية",duration:{ar:"12 شهر",en:"12 months"},status:"ongoing",icon:"<i class='fa-solid fa-rocket'></i>",img:""},
-    {id:3,name:{ar:"التوصيل السريع للتجارة الإلكترونية",en:"E-commerce Fast Delivery"},desc:{ar:"شراكة لتوصيل 5000 طلب يومياً.",en:"Partnership delivering 5000 orders daily."},client:"منصة رائدة",duration:{ar:"6 أشهر",en:"6 months"},status:"completed",icon:"<i class='fa-solid fa-mobile-screen'></i>",img:""},
-    {id:4,name:{ar:"لوجستيات القطاع الصحي",en:"Healthcare Logistics"},desc:{ar:"خدمات لوجستية للمستشفيات.",en:"Logistics services for hospitals."},client:"مجموعة المستشفيات",duration:{ar:"18 شهر",en:"18 months"},status:"ongoing",icon:"<i class='fa-solid fa-hospital'></i>",img:""}
+    {id:1,name:{ar:"ربط منصات سلة وزد للتجارة الإلكترونية",en:"E-commerce Integration (Salla & Zid)"},desc:{ar:"تكامل تقني شامل لربط المتاجر الإلكترونية وحلول التوصيل السريع للميل الأخير تلقائياً.",en:"Seamless API integration connecting online stores with automated last-mile delivery solutions."},client:"منصة سلة وزد الرائدتين",duration:{ar:"مستمر",en:"Ongoing"},status:"ongoing",icon:"<i class='fa-solid fa-code'></i>",img:""},
+    {id:2,name:{ar:"مستودعات التوزيع لأسواق العثيم والنهدي",en:"Distribution Warehousing - Othaim & Nahdi"},desc:{ar:"حلول تخزين بارد وجاف مع تتبع درجات الحرارة لحظياً لضمان سلامة الأغذية والأدوية.",en:"Cold and ambient storage warehousing with real-time temperature tracking for compliance."},client:"شركة أسواق العثيم والنهدي الطبية",duration:{ar:"مستمر",en:"Ongoing"},status:"ongoing",icon:"<i class='fa-solid fa-warehouse'></i>",img:""},
+    {id:3,name:{ar:"الميل الأخير لمجموعة الحبيب الطبية",en:"Last-Mile Medical Delivery - Al Habib Group"},desc:{ar:"توصيل الأدوية والوصفات الطبية للمنازل وفق أعلى معايير الجودة وسلامة النقل الطبي.",en:"Home delivery of medications and prescriptions following the highest medical logistics standards."},client:"مجموعة الدكتور سليمان الحبيب الطبية",duration:{ar:"مستمر",en:"Ongoing"},status:"completed",icon:"<i class='fa-solid fa-truck-medical'></i>",img:""},
+    {id:4,name:{ar:"إسناد القوى العاملة لمجموعة الشايع",en:"Logistics Manpower Outsourcing - Alshaya Group"},desc:{ar:"توفير أكثر من 300 عامل مستودعات، بيكرز وباكرز لعمليات التجزئة الضخمة.",en:"Providing 300+ warehouse workers, pickers, and packers for large-scale retail operations."},client:"مجموعة الشايع بالتجزئة",duration:{ar:"18 شهر",en:"18 months"},status:"ongoing",icon:"<i class='fa-solid fa-users-gear'></i>",img:""}
   ],
   news:[
-    {id:1,title:{ar:"رعاية تُطلق أسطول توصيل كهربائي",en:"Riaya Launches Electric Delivery Fleet"},excerpt:{ar:"في إطار التزامنا بالاستدامة ورؤية 2030...",en:"As part of our commitment to sustainability and Vision 2030..."},cat:{ar:"إعلان",en:"Announcement"},date:"2026-04-15",icon:"<i class='fa-solid fa-bullhorn'></i>",img:""},
-    {id:2,title:{ar:"شراكة استراتيجية مع كبرى شركات الخليج",en:"Strategic Partnership with Gulf Majors"},excerpt:{ar:"أبرمت رعاية اتفاقية شراكة استراتيجية...",en:"Riaya signed a strategic partnership agreement..."},cat:{ar:"شراكة",en:"Partnership"},date:"2026-03-01",icon:"<i class='fa-solid fa-handshake'></i>",img:""},
-    {id:3,title:{ar:"رعاية تفوز بجائزة أفضل شركة لوجستية",en:"Riaya Wins Best Logistics Company Award"},excerpt:{ar:"تشرفت رعاية بالفوز بجائزة أفضل شركة...",en:"Riaya was honored with the Best Logistics Company award..."},cat:{ar:"جائزة",en:"Award"},date:"2026-02-10",icon:"<i class='fa-solid fa-trophy'></i>",img:""}
+    {id:1,title:{ar:"عافية تُطلق أسطول توصيل كهربائي",en:"Aafiya Launches Electric Delivery Fleet"},excerpt:{ar:"في إطار التزامنا بالاستدامة ورؤية 2030...",en:"As part of our commitment to sustainability and Vision 2030..."},cat:{ar:"إعلان",en:"Announcement"},date:"2026-04-15",icon:"<i class='fa-solid fa-bullhorn'></i>",img:""},
+    {id:2,title:{ar:"شراكة استراتيجية مع كبرى شركات الخليج",en:"Strategic Partnership with Gulf Majors"},excerpt:{ar:"أبرمت عافية اتفاقية شراكة استراتيجية...",en:"Aafiya signed a strategic partnership agreement..."},cat:{ar:"شراكة",en:"Partnership"},date:"2026-03-01",icon:"<i class='fa-solid fa-handshake'></i>",img:""},
+    {id:3,title:{ar:"عافية تفوز بجائزة أفضل شركة لوجستية",en:"Aafiya Wins Best Logistics Company Award"},excerpt:{ar:"تشرفت عافية بالفوز بجائزة أفضل شركة...",en:"Aafiya was honored with the Best Logistics Company award..."},cat:{ar:"جائزة",en:"Award"},date:"2026-02-10",icon:"<i class='fa-solid fa-trophy'></i>",img:""}
   ],
   team:[
     {id:1,name:{ar:"أحمد العلي",en:"Ahmed Al-Ali"},role:{ar:"المدير التنفيذي",en:"CEO"},bio:{ar:"خبرة أكثر من 15 عاماً في اللوجستيات.",en:"15+ years of logistics expertise."},icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
@@ -24,19 +25,19 @@ const DB={
     {id:4,title:{ar:"مسؤول موارد بشرية",en:"HR Officer"},dept:{ar:"الموارد البشرية",en:"HR"},loc:{ar:"الرياض",en:"Riyadh"},type:{ar:"دوام كامل",en:"Full-time"},icon:"<i class='fa-solid fa-users'></i>"}
   ],
   gallery:[
-    {id:1,title:{ar:"مستودع الرياض",en:"Riyadh Warehouse"},cat:"warehouse",icon:"<i class='fa-solid fa-warehouse'></i>",img:""},
-    {id:2,title:{ar:"أسطول التوصيل",en:"Delivery Fleet"},cat:"delivery",icon:"<i class='fa-solid fa-truck-fast'></i>",img:""},
-    {id:3,title:{ar:"فريق العمل",en:"Our Team"},cat:"team",icon:"<i class='fa-solid fa-users'></i>",img:""},
-    {id:4,title:{ar:"مركز الفرز",en:"Sorting Center"},cat:"warehouse",icon:"<i class='fa-solid fa-boxes-stacked'></i>",img:""},
-    {id:5,title:{ar:"عمليات التوصيل",en:"Delivery Operations"},cat:"delivery",icon:"<i class='fa-solid fa-motorcycle'></i>",img:""},
-    {id:6,title:{ar:"اجتماع الفريق",en:"Team Meeting"},cat:"team",icon:"<i class='fa-solid fa-handshake'></i>",img:""}
+    {id:1,title:{ar:"مستودع الرياض",en:"Riyadh Warehouse"},cat:"warehouse",icon:"<i class='fa-solid fa-warehouse'></i>",img:"img/WhatsApp Image 2026-04-18 at 12.18.38 AM.jpeg"},
+    {id:2,title:{ar:"أسطول التوصيل",en:"Delivery Fleet"},cat:"delivery",icon:"<i class='fa-solid fa-truck-fast'></i>",img:"img/Gemini_Generated_Image_jcg4pojcg4pojcg4.png"},
+    {id:3,title:{ar:"فريق العمل",en:"Our Team"},cat:"team",icon:"<i class='fa-solid fa-users'></i>",img:"img/Gemini_Generated_Image_mrhpdsmrhpdsmrhp.png"},
+    {id:4,title:{ar:"مركز الفرز",en:"Sorting Center"},cat:"warehouse",icon:"<i class='fa-solid fa-boxes-stacked'></i>",img:"img/WhatsApp Image 2026-04-18 at 12.00.30 AM.jpeg"},
+    {id:5,title:{ar:"عمليات التوصيل",en:"Delivery Operations"},cat:"delivery",icon:"<i class='fa-solid fa-motorcycle'></i>",img:"img/Gemini_Generated_Image_am26hbam26hbam26 (1).png"},
+    {id:6,title:{ar:"اجتماع الفريق",en:"Team Meeting"},cat:"team",icon:"<i class='fa-solid fa-handshake'></i>",img:"img/WhatsApp Image 2026-04-18 at 12.39.16 AM.jpeg"}
   ],
   partners:[
-    {id:1,name:{ar:"مجموعة الخليج",en:"Gulf Group"},type:{ar:"شريك لوجستي",en:"Logistics Partner"},icon:"<i class='fa-solid fa-building'></i>"},
-    {id:2,name:{ar:"الصناعات الوطنية",en:"National Industries"},type:{ar:"شريك تشغيلي",en:"Operational Partner"},icon:"<i class='fa-solid fa-industry'></i>"},
-    {id:3,name:{ar:"منصة التجارة",en:"Commerce Platform"},type:{ar:"شريك توصيل",en:"Delivery Partner"},icon:"<i class='fa-solid fa-cart-shopping'></i>"},
-    {id:4,name:{ar:"القطاع الصحي",en:"Healthcare Sector"},type:{ar:"شريك استراتيجي",en:"Strategic Partner"},icon:"<i class='fa-solid fa-hospital'></i>"},
-    {id:5,name:{ar:"التطوير والبناء",en:"Development & Build"},type:{ar:"شريك عمليات",en:"Operations Partner"},icon:"<i class='fa-solid fa-helmet-safety'></i>"}
+    {id:1,name:{ar:"أسواق العثيم",en:"Othaim Markets"},type:{ar:"شريك لوجستي",en:"Logistics Partner"},icon:"<i class='fa-solid fa-building'></i>"},
+    {id:2,name:{ar:"النهدي الطبية",en:"Nahdi Medical"},type:{ar:"شريك تشغيلي",en:"Operational Partner"},icon:"<i class='fa-solid fa-prescription-bottle-medical'></i>"},
+    {id:3,name:{ar:"مجموعة الحبيب الطبية",en:"Al Habib Medical"},type:{ar:"شريك توصيل",en:"Delivery Partner"},icon:"<i class='fa-solid fa-truck-medical'></i>"},
+    {id:4,name:{ar:"نون السعودية",en:"Noon KSA"},type:{ar:"شريك استراتيجي",en:"Strategic Partner"},icon:"<i class='fa-solid fa-cart-flatbed-suitcase'></i>"},
+    {id:5,name:{ar:"مجموعة الشايع",en:"Alshaya Group"},type:{ar:"شريك عمليات",en:"Operations Partner"},icon:"<i class='fa-solid fa-helmet-safety'></i>"}
   ],
   services:[
     {id:1,name:{ar:"النقل واللوجستيات",en:"Transportation & Logistics"},desc:{ar:"نقل موثوق وسريع بين مدن المملكة مع تتبع لحظي.",en:"Reliable and fast transportation across the Kingdom with real-time tracking."},icon:"<i class='fa-solid fa-truck'></i>"},
@@ -47,14 +48,21 @@ const DB={
     {id:6,name:{ar:"التقارير والتحليلات",en:"Reports & Analytics"},desc:{ar:"تقارير دورية وتحسين مستمر للعمليات.",en:"Periodic reports and continuous process improvement."},icon:"<i class='fa-solid fa-chart-column'></i>"}
   ],
   testimonials:[
-    {id:1,name:{ar:"محمد العتيبي",en:"Mohammed Al-Otaibi"},position:{ar:"مدير العمليات - شركة تصنيع",en:"Operations Director - Manufacturing Co."},text:{ar:"ساهمت عافية في تحسين سلسلة الإمداد لدينا بشكل كبير، مما أدى إلى توفير التكاليف وزيادة الإنتاجية.",en:"Aafiya significantly improved our supply chain, resulting in cost savings and increased productivity."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
-    {id:2,name:{ar:"فهد الشمري",en:"Fahad Al-Shammari"},position:{ar:"الرئيس التنفيذي - شركة توزيع",en:"CEO - Distribution Company"},text:{ar:"فريق احترافي وحلول فعالة في الوقت المناسب. نقدر التزامهم بالجودة والسلامة في كل عملية.",en:"Professional team with timely solutions. We appreciate their commitment to quality and safety in every operation."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""}
+    {id:1,name:{ar:"م. خالد الحربي",en:"Eng. Khalid Al-Harbi"},position:{ar:"مدير سلاسل الإمداد - أسواق العثيم",en:"Supply Chain Director - Othaim Markets"},text:{ar:"حققت عافية نسبة التزام باتفاقية مستوى الخدمة (SLA) تتجاوز 99.2٪ في عمليات النقل الجاف والمبرد لدينا. شريك موثوق واحترافي بكل المقاييس.",en:"Aafiya achieved an SLA commitment rate exceeding 99.2% in our dry and cold transport operations. A highly professional and reliable partner."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
+    {id:2,name:{ar:"أ. ناصر الشهري",en:"Nasser Al-Shehri"},position:{ar:"مدير العمليات - منصة تجارة إلكترونية",en:"Operations Director - E-Commerce Platform"},text:{ar:"أحدث الربط البرمي التلقائي مع عافية قفزة نوعية في سرعة شحن وتسليم طلبات الميل الأخير لعملائنا في الرياض وجدة.",en:"Automated API integration with Aafiya created a major leap in delivery speed and last-mile order fulfillment for our clients in Riyadh & Jeddah."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
+    {id:3,name:{ar:"د. ياسر القحطاني",en:"Dr. Yasser Al-Qahtani"},position:{ar:"مدير لوجستيات الأدوية - النهدي الطبية",en:"Pharmaceutical Logistics Manager - Nahdi Medical"},text:{ar:"نعتمد بالكامل على أسطول النقل المبرد من عافية لتوصيل الأدوية والوصفات الطبية للمنازل. دقة وتدريب متميز للسائقين.",en:"We rely entirely on Aafiya's temperature-controlled fleet for pharmaceutical home delivery. Excellent driver training and reliability."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
+    {id:4,name:{ar:"أ. لولوة المنصور",en:"Lulwa Al-Mansour"},position:{ar:"مديرة الموارد البشرية - مجموعة التجزئة",en:"HR Director - Retail Group"},text:{ar:"وفرت لنا عافية كوادر متخصصة ومدربة من جامعي الطلبات وعمال التحميل في غضون أيام، مما أنقذ عملياتنا التشغيلية خلال مواسم الذروة.",en:"Aafiya provided us with highly trained pickers and warehouse loaders within days, saving our operations during peak retail seasons."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""},
+    {id:5,name:{ar:"أ. فهد الشمري",en:"Fahad Al-Shammari"},position:{ar:"الرئيس التنفيذي - مجموعة السلع الاستهلاكية",en:"CEO - FMCG Group"},text:{ar:"شريك لوجستي متميز يجمع بين الكفاءة والسرعة، ويقدم تقارير دورية وتحليلات تدعم اتخاذ القرارات التشغيلية الذكية.",en:"An exceptional logistics partner combining efficiency and speed, offering comprehensive reports and analytics that support smart decision making."},stars:5,icon:"<i class='fa-solid fa-user-tie'></i>",img:""}
   ],
-  contactInfo:{phone:"+966558619232",whatsapp:"+966558619232",email:"info@aafiya.site",website:"aafiya.site",locationAr:"الرياض، المملكة العربية السعودية",locationEn:"Riyadh, Saudi Arabia"},
+  inquiries:[
+    {id:1,ticket:"AF-24891",name:"خالد الشهري",phone:"0551234567",email:"k.shehri@client.com",service:"transport",msg:"نود الاستفسار عن تكلفة نقل شحنات مبردة شهرياً بين جدة والدمام.",date:"2026-06-13"},
+    {id:2,ticket:"AF-98312",name:"Sarah Smith",phone:"0501112222",email:"sarah@globalwork.com",service:"workforce",msg:"We need 15 pickers and loaders for our warehouse for a 3-month contract.",date:"2026-06-15"}
+  ],
+  contactInfo:{phone:"+966558619232",whatsapp:"+966558619232",email:"info@aafiyahala.fun",website:"aafiyahala.fun",locationAr:"الرياض، المملكة العربية السعودية",locationEn:"Riyadh, Saudi Arabia"},
   socialMedia:[
-    {id:1,platform:"twitter",url:"#",icon:"𝕏",label:"Twitter / X"},
-    {id:2,platform:"linkedin",url:"#",icon:"in",label:"LinkedIn"},
-    {id:3,platform:"instagram",url:"#",icon:"<i class='fa-brands fa-instagram'></i>",label:"Instagram"}
+    {id:1,platform:"twitter",url:"https://x.com/aafiyalogistics",icon:"𝕏",label:"Twitter / X"},
+    {id:2,platform:"linkedin",url:"https://linkedin.com/company/aafiyalogistics",icon:"in",label:"LinkedIn"},
+    {id:3,platform:"instagram",url:"https://instagram.com/aafiyalogistics",icon:"<i class='fa-brands fa-instagram'></i>",label:"Instagram"}
   ],
   settings: {
     siteName: { ar: "عافية لوجستيك", en: "Aafiya Logistics" },
@@ -108,12 +116,12 @@ const DB={
     visibleSections: {
       about: true,
       services: true,
-      roles: true,
+      roles: false,
       whyUs: true,
       howWeWork: true,
       projects: true,
       news: true,
-      gallery: true,
+      gallery: false,
       team: true,
       jobs: true,
       testimonials: true,
@@ -132,7 +140,12 @@ function loadDB(){
   if(!saved) return;
   try {
     const d = JSON.parse(saved);
-    ['projects','news','team','jobs','gallery','partners','services','testimonials','socialMedia'].forEach(k=>{if(d[k])DB[k]=d[k];});
+    if (!d.version || d.version < DB.version) {
+      console.log("Database version mismatch. Resetting localStorage database to version " + DB.version);
+      localStorage.removeItem(DB_KEY);
+      return;
+    }
+    ['projects','news','team','jobs','gallery','partners','services','testimonials','socialMedia','inquiries'].forEach(k=>{if(d[k])DB[k]=d[k];});
     if(d.contactInfo) DB.contactInfo=d.contactInfo;
     if(d.nid) DB.nid=d.nid;
     if(d.settings) {
@@ -210,9 +223,22 @@ if (DB.settings) {
     migrated = true;
   }
   
+  if (DB.news) {
+    DB.news.forEach(item => {
+      if (item.title && item.title.ar && item.title.ar.includes("رعاية")) {
+        item.title.ar = item.title.ar.replace(/رعاية/g, "عافية");
+        migrated = true;
+      }
+      if (item.excerpt && item.excerpt.ar && item.excerpt.ar.includes("رعاية")) {
+        item.excerpt.ar = item.excerpt.ar.replace(/رعاية/g, "عافية");
+        migrated = true;
+      }
+    });
+  }
+  
   if (DB.contactInfo && DB.contactInfo.email.includes("raya1.site")) {
-    DB.contactInfo.email = "info@aafiya.site";
-    DB.contactInfo.website = "aafiya.site";
+    DB.contactInfo.email = "info@aafiyahala.fun";
+    DB.contactInfo.website = "aafiyahala.fun";
     migrated = true;
   }
   
@@ -223,6 +249,37 @@ if (DB.settings) {
   if (DB.settings && DB.settings.backgrounds && !DB.settings.backgrounds.projects) {
     DB.settings.backgrounds.projects = "img/Gemini_Generated_Image_jcg4pojcg4pojcg4.png";
     migrated = true;
+  }
+  
+  if (DB.gallery) {
+    let galleryChanged = false;
+    const defaultGalleryImages = [
+      "img/WhatsApp Image 2026-04-18 at 12.18.38 AM.jpeg",
+      "img/Gemini_Generated_Image_jcg4pojcg4pojcg4.png",
+      "img/Gemini_Generated_Image_mrhpdsmrhpdsmrhp.png",
+      "img/WhatsApp Image 2026-04-18 at 12.00.30 AM.jpeg",
+      "img/Gemini_Generated_Image_am26hbam26hbam26 (1).png",
+      "img/WhatsApp Image 2026-04-18 at 12.39.16 AM.jpeg"
+    ];
+    for (let i = 0; i < DB.gallery.length; i++) {
+      if ((!DB.gallery[i].img || DB.gallery[i].img === "") && defaultGalleryImages[i]) {
+        DB.gallery[i].img = defaultGalleryImages[i];
+        galleryChanged = true;
+      }
+    }
+    if (DB.gallery.length === 5) {
+      DB.gallery.push({
+        id: 6,
+        title: { ar: "اجتماع الفريق", en: "Team Meeting" },
+        cat: "team",
+        icon: "<i class='fa-solid fa-handshake'></i>",
+        img: "img/WhatsApp Image 2026-04-18 at 12.39.16 AM.jpeg"
+      });
+      galleryChanged = true;
+    }
+    if (galleryChanged) {
+      migrated = true;
+    }
   }
   
   if (migrated) {
@@ -265,7 +322,7 @@ function t(obj){ return typeof obj==='object'?(obj[lang]||obj.ar||''):obj; }
 // ═══ VIEWS ═══
 const isDash = location.pathname.includes('dashboard');
 function goView(n){
-  if(n==='dashboard' && !isDash){ location.href='dashboard.html'; return; }
+  if(n==='dashboard' && !isDash){ location.href='ctrl-9f3a2e.html'; return; }
   if(n==='website' && isDash){ location.href='index.html'; return; }
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const el=document.getElementById(n+'-view');
@@ -304,6 +361,8 @@ function renderAll(){
   renderTestList();renderTestWeb();
   renderContactPanel();renderContactWeb();
   renderSocialList();renderSocialWeb();
+  renderInquiriesList();
+  if(!isDash) applySectionVisibility();
   initRv();
 }
 
@@ -347,7 +406,7 @@ function renderGalList(){
 function renderGalWeb(filter='all'){
   const el=document.getElementById('gallery-display');if(!el)return;
   const items=filter==='all'?DB.gallery:DB.gallery.filter(g=>g.cat===filter);
-  el.innerHTML=items.map((g,i)=>`<div class="gal-item rv d${(i%6)+1}" onclick="openLB('${g.img||''}','${g.icon}')"><div>${g.img?`<img src="${g.img}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">`:`<span style="font-size:56px">${g.icon}</span>`}</div><div class="gal-overlay"><div class="gal-zoom"><i class='fa-solid fa-magnifying-glass'></i></div></div></div>`).join('');
+  el.innerHTML=items.map((g,i)=>`<div class="gal-item d${(i%6)+1}" onclick="openLB('${g.img||''}','${g.icon}')"><div>${g.img?`<img src="${g.img}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">`:`<span style="font-size:56px">${g.icon}</span>`}</div><div class="gal-overlay"><div class="gal-zoom"><i class='fa-solid fa-magnifying-glass'></i></div></div></div>`).join('');
 }
 function filterGal(f,btn){document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderGalWeb(f);}
 function renderPtnList(){
@@ -364,7 +423,29 @@ function renderSvcList(){
 }
 function renderSvcWeb(){
   const el=document.getElementById('svc-display');if(!el)return;
-  el.innerHTML=DB.services.map((s,i)=>`<div class="svc-card rv d${(i%3)+1}"><div class="svc-ic">${s.icon}</div><h3>${t(s.name)}</h3><p>${t(s.desc)}</p></div>`).join('');
+  const slugs = {
+    1: "transport",
+    2: "warehouse",
+    3: "delivery",
+    4: "workforce",
+    5: "flexibility",
+    6: "analytics"
+  };
+  el.innerHTML=DB.services.map((s,i)=>{
+    const slug = slugs[s.id] || "transport";
+    const link = `services/${slug}.html`;
+    const ctaText = lang === 'ar' ? 'اقرأ المزيد ←' : 'Read More →';
+    return `<a href="${link}" class="svc-card-link" style="text-decoration: none; color: inherit; display: block;">
+      <div class="svc-card rv d${(i%3)+1}">
+        <div class="svc-ic">${s.icon}</div>
+        <h3>${t(s.name)}</h3>
+        <p>${t(s.desc)}</p>
+        <div class="svc-more" style="margin-top: 14px; font-size: 12px; font-weight: 700; color: var(--or); display: flex; align-items: center; gap: 4px;">
+          ${ctaText}
+        </div>
+      </div>
+    </a>`;
+  }).join('');
 }
 
 // ═══ CRUD SAVES ═══
@@ -499,8 +580,18 @@ function editSocial(id){const s=DB.socialMedia.find(x=>x.id===id);if(!s)return;d
 // ═══ AUTH ═══
 function hashPw(p){let h=0;for(let i=0;i<p.length;i++){h=((h<<5)-h)+p.charCodeAt(i);h|=0;}return h.toString(36);}
 function checkAuth(){const a=JSON.parse(localStorage.getItem('riaya-auth')||'null');if(!a)return false;if(Date.now()-a.time>86400000){localStorage.removeItem('riaya-auth');return false;}return true;}
-function logout(){localStorage.removeItem('riaya-auth');location.href='login.html';}
-function delItem(type,id){if(!confirm(lang==='ar'?'هل أنت متأكد من الحذف؟':'Are you sure you want to delete?'))return;DB[type]=DB[type].filter(i=>i.id!==id);saveDB();renderAll();toast('<i class="fa-solid fa-trash-can"></i> '+(lang==='ar'?'تم الحذف':'Deleted'));}
+function logout(){localStorage.removeItem('riaya-auth');location.href='auth-7b4d1c.html';}
+function delItem(type,id){
+  showConfirm(
+    lang==='ar'?'تأكيد الحذف':'Confirm Delete',
+    lang==='ar'?'هل أنت متأكد من حذف هذا العنصر؟ لا يمكن التراجع.':'Are you sure you want to delete this item? This cannot be undone.',
+    ()=>{
+      DB[type]=DB[type].filter(i=>i.id!==id);
+      saveDB();renderAll();
+      toast('<i class="fa-solid fa-trash-can"></i> '+(lang==='ar'?'تم الحذف':'Deleted'));
+    }
+  );
+}
 function filterPrj(f,btn){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('act'));btn.classList.add('act');renderPrjList(f);}
 
 // ═══ IMAGE UPLOAD ═══
@@ -540,11 +631,138 @@ function closeLB(){document.getElementById('lightbox').classList.remove('open');
 function submitForm(){
   const name=document.getElementById('cf-name').value.trim();
   if(!name)return toast(lang==='ar'?'⚠️ أدخل اسمك':'⚠️ Enter your name');
+  const phone=document.getElementById('cf-phone').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const svc=document.getElementById('cf-svc').value;
+  const msg=document.getElementById('cf-msg').value.trim();
+  
   const num=Math.floor(Math.random()*90000)+10000;
+  const ticket = "AF-" + num;
+  
+  const inq = {
+    id: DB.nid++,
+    ticket: ticket,
+    name: name,
+    phone: phone || '-',
+    email: email || '-',
+    service: svc || 'general',
+    msg: msg || '-',
+    date: new Date().toISOString().split('T')[0]
+  };
+  
+  if (!DB.inquiries) DB.inquiries = [];
+  DB.inquiries.unshift(inq);
+  saveDB();
+  
   document.getElementById('ticket-num').textContent=num;
   document.getElementById('ticket-num2').textContent=num;
   document.getElementById('auto-reply').classList.add('show');
   toast('<i class="fa-solid fa-circle-check"></i> '+(lang==='ar'?'تم إرسال رسالتك بنجاح!':'Message sent successfully!'));
+  
+  // Clear form
+  document.getElementById('cf-name').value = '';
+  document.getElementById('cf-phone').value = '';
+  document.getElementById('cf-email').value = '';
+  document.getElementById('cf-svc').value = '';
+  document.getElementById('cf-msg').value = '';
+}
+
+function renderInquiriesList() {
+  const el = document.getElementById('inq-table-body');
+  if (!el) return;
+  const countEl = document.getElementById('inq-count');
+  if (!DB.inquiries) DB.inquiries = [];
+  
+  if (countEl) countEl.textContent = DB.inquiries.length;
+  
+  if (DB.inquiries.length === 0) {
+    el.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:30px;color:var(--txt2);">${lang === 'ar' ? 'لا توجد طلبات اتصال حالياً' : 'No inquiries found'}</td></tr>`;
+    return;
+  }
+  
+  el.innerHTML = DB.inquiries.map(inq => {
+    let svcTextAr = inq.service;
+    let svcTextEn = inq.service;
+    if (inq.service === 'transport') { svcTextAr = 'النقل واللوجستيات'; svcTextEn = 'Transportation & Logistics'; }
+    else if (inq.service === 'warehouse') { svcTextAr = 'إدارة المستودعات'; svcTextEn = 'Warehouse Management'; }
+    else if (inq.service === 'delivery') { svcTextAr = 'التوصيل الأخير'; svcTextEn = 'Last-Mile Delivery'; }
+    else if (inq.service === 'workforce') { svcTextAr = 'إدارة القوى العاملة'; svcTextEn = 'Workforce Management'; }
+    else if (inq.service === 'general') { svcTextAr = 'استفسار عام'; svcTextEn = 'General Inquiry'; }
+
+    const svcText = lang === 'ar' ? svcTextAr : svcTextEn;
+    
+    return `<tr>
+      <td><span class="bdg bdg-o" style="font-family: monospace;">${inq.ticket}</span></td>
+      <td><strong>${inq.name}</strong></td>
+      <td><span style="font-family: monospace; direction: ltr; display: inline-block;">${inq.phone}</span></td>
+      <td><a href="mailto:${inq.email}" style="color:inherit;text-decoration:underline;">${inq.email}</a></td>
+      <td><span class="bdg bdg-g">${svcText}</span></td>
+      <td style="max-width:250px;white-space:normal;word-break:break-word;">${inq.msg}</td>
+      <td><span style="font-family: monospace;">${inq.date}</span></td>
+      <td>
+        <button class="ib d" onclick="deleteInquiry(${inq.id})" title="${lang === 'ar' ? 'حذف' : 'Delete'}">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function deleteInquiry(id) {
+  showConfirm(
+    lang === 'ar' ? 'حذف طلب الاتصال' : 'Delete Inquiry',
+    lang === 'ar' ? 'هل أنت متأكد من حذف هذا الطلب؟ لا يمكن التراجع.' : 'Are you sure you want to delete this inquiry? This cannot be undone.',
+    () => {
+      DB.inquiries = DB.inquiries.filter(inq => inq.id !== id);
+      saveDB();
+      renderInquiriesList();
+      toast('<i class="fa-solid fa-trash-can"></i> ' + (lang === 'ar' ? 'تم الحذف بنجاح' : 'Deleted successfully'));
+    }
+  );
+}
+
+// ═══ CONFIRM DIALOG ═══
+function showConfirm(title, msg, onConfirm) {
+  // Remove existing confirm modal if any
+  const existing = document.getElementById('confirm-mo');
+  if (existing) existing.remove();
+  
+  const mo = document.createElement('div');
+  mo.id = 'confirm-mo';
+  mo.className = 'mo open';
+  mo.innerHTML = `
+    <div class="mo-box" style="max-width:420px;">
+      <div class="mo-hd">
+        <div class="mo-tit" style="color:var(--or);"><i class="fa-solid fa-triangle-exclamation" style="margin-left:8px;margin-right:8px;"></i>${title}</div>
+        <button class="mo-cls" onclick="document.getElementById('confirm-mo').remove()">✕</button>
+      </div>
+      <div style="padding:20px 24px;color:var(--txt);font-size:14.5px;line-height:1.7;">${msg}</div>
+      <div class="f-actions" style="border-top:1px solid var(--bdr);padding:16px 24px;">
+        <button class="btn-outline" style="font-size:12px;padding:10px 20px;" onclick="document.getElementById('confirm-mo').remove()">
+          <span data-ar>إلغاء</span><span data-en>Cancel</span>
+        </button>
+        <button class="btn-primary" id="confirm-yes-btn" style="font-size:12px;padding:10px 20px;background:var(--err,#e74c3c);border-color:var(--err,#e74c3c);">
+          <i class="fa-solid fa-trash-can"></i>
+          <span data-ar>تأكيد الحذف</span><span data-en>Confirm Delete</span>
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(mo);
+  
+  // Apply current language
+  const arEls = mo.querySelectorAll('[data-ar]');
+  const enEls = mo.querySelectorAll('[data-en]');
+  arEls.forEach(el => el.style.display = lang === 'ar' ? '' : 'none');
+  enEls.forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  
+  // Close on backdrop click
+  mo.addEventListener('click', (e) => { if (e.target === mo) mo.remove(); });
+  
+  document.getElementById('confirm-yes-btn').onclick = () => {
+    mo.remove();
+    onConfirm();
+  };
 }
 
 // ═══ TOAST ═══
@@ -1276,6 +1494,7 @@ function saveSettings() {
   applyLogo();
   applySiteName();
   applyStaticTexts();
+  applySectionVisibility();
   
   toast('<i class="fa-solid fa-circle-check"></i> ' + (lang === 'ar' ? 'تم حفظ الإعدادات بنجاح!' : 'Settings saved successfully!'));
 }
@@ -1390,6 +1609,7 @@ window.addEventListener('load',()=>{
   applyLang();
   applyTheme();
   renderAll();
+  console.log("DB_GALLERY_STATE:", JSON.stringify(DB.gallery));
   if(isDash){
     setTimeout(animProgs,500);
   } else {
@@ -1408,3 +1628,28 @@ window.addEventListener('load',()=>{
     }
   }
 });
+
+function simulateTracking() {
+  const input = document.getElementById('track-id').value;
+  const resultBox = document.getElementById('tracking-result');
+  if (input.trim() !== "") {
+    resultBox.style.display = 'block';
+    if (typeof gsap !== 'undefined') {
+      gsap.fromTo(resultBox, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+    }
+  }
+}
+
+function selectHub(hubId) {
+  document.querySelectorAll('.map-hub-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.map-node').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.map-connection').forEach(l => l.classList.remove('active'));
+  
+  const card = document.getElementById('hub-' + hubId);
+  const node = document.getElementById('node-' + hubId);
+  const conn = document.querySelectorAll('.conn-' + hubId);
+  
+  if (card) card.classList.add('active');
+  if (node) node.classList.add('active');
+  conn.forEach(c => c.classList.add('active'));
+}
